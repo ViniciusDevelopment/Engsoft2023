@@ -1219,3 +1219,288 @@ Os principais entregáveis deste projeto incluem:
 <br/>
 
 ---
+## *RF12 - Permitir que os usuários editem seus perfis.*
+
+<br/>
+
+#### Autor: [Jorge Antonio Motta Braga](https://github.com/jorgespark11)
+
+#### Revisor: [Jorge Antonio Motta Braga](https://github.com/jorgespark11)
+
+<br/>
+
+| Item	         | Descrição                                                         |
+| -------------- | ----------------------------------------------------------------- |
+|Casos de uso    | RF12 - Permitir que os usuários editem seus perfis;               |
+|Resumo          | O usuário deseja editar as informações de seu perfil;             |
+|Ator principal  | Usuário                                                           |
+|Ator secundario | -                                                                 |
+|Pré-condição    | O usuário estar logado no aplicativo;                             |
+|Pós-condição    | O usuário consegue editar seu perfil da maneira desejada;         |
+
+<br/>
+
+#### Fluxo principal
+
+| Passos    | Descrição                                               |
+| --------- | ------------------------------------------------------- |
+| Passo 01  | O usuário acessa o app.                                 |
+| Passo 02  | O usuário acessa a seção de Perfil.                     |
+| Passo 03  | O usuário seleciona o botão de 'alterar Perfil'.        |
+| Passo 04  | O usuário altera ou atualiza as informações do perfil.  |
+| Passo 05  | O usuário salva as alterações.                          |
+
+<br/>
+
+#### Campos do formulário
+
+| Campo                     | Obrigatório? | Editável? | Formato      |
+| ------------------------- | ------------ | --------- | ------------ |
+| Nome                      | Sim          | Sim       | Texto        |
+| Email                     | Sim          | Sim       | Email        |
+| Descrição do que procura  | Não          | Sim       | Texto        |
+| Foto                      | Não          | Sim       | Jpeg         |
+| Localização               | Não          | Sim       | Texto        |
+| Preço aceitável           | Não          | Sim       | Numérico     |
+| Ocupação                  | Não          | Sim       | Texto        |
+
+<br/>
+
+#### Opções de usuário
+
+
+| Opção         | Descrição                   |
+| ------------- | --------------------------- |
+| Editar Perfil | Edita o perfil do usuário.  |
+
+<br />
+
+### US12 - Permitir que os usuários editem seus perfis.
+
+*Usuário*
+
+| User story                                                                                                  | Critério de aceitação                                                     |
+| ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| Enquanto usuário quando visualizo *meu perfil* necessito ser capaz de *alterar e atualizar* minhas informações. | Ator necessita ter perfil.   |
+
+<br />
+
+### Prototipação de telas
+*Tela de perfil do usuário com o botão de 'alterar informações de perfil'*
+
+![WhatsApp Image 2023-09-12 at 21 43 16](https://github.com/ViniciusDevelopment/EngSoft-2023.2/assets/67427291/e94a1988-80f6-4284-8a37-563289371dbd)
+
+<br/>
+
+---
+
+## *RF13 - Implementar funcionalidade de pesquisa avançada de prestadores de serviço*
+
+<br/>
+
+#### Autor: [Pedro Trivelato](https://github.com/Ptrivelato)
+
+#### Revisor: [Raphael Sales de Souza](https://github.com/raphaelsales)
+
+<br/>
+
+| Item            | Descrição                                                                                           |
+| --------------- | --------------------------------------------------------------------------------------------------- |
+| Caso de uso     | RF13 - Implementar funcionalidade de pesquisa avançada de prestadores de serviço;                   |
+| Resumo          | Responsável por adicionar parâmetros de referencia para a pesquisa de prestadores de serviço;       |
+| Ator principal  | Usuário;                                                                                            |
+| Ator secundário | -                                                                                                   |
+| Pré-condição    | Ter acesso ao aplicativo, ter acessado a aba de pesquisa;                                           |
+| Pós-condição    | Usuário ter uma pesquisa avançada de prestadores de serviço com parâmetros;                         |
+
+<br />
+
+#### Fluxo principal
+
+| Passos  | Descrição                                           |
+| ------- | --------------------------------------------------- |
+| Passo 1 | O usuário estar logado no aplicativo.               |
+| Passo 2 | O usuário deve acessar a tela de pesquisa.          |  
+| Passo 3 | O usuário seleciona a aba de 'pesquisa avançada'.   |
+
+<br />
+
+#### Campos do formulário
+
+| Campo                     | Obrigatório? | Editável? | Formato      |
+| ------------------------- | ------------ | --------- | ------------ |
+| Pesquisa                  | Sim          | Sim       | Texto        |
+| Localização               | Sim          | Sim       | Texto        |
+| Preço no orçamento        | Sim          | Sim       | Numérico     |
+| Nível de avaliação        | Sim          | Sim       | Numérico     |
+
+<br/>
+
+#### Opções de usuário
+
+
+| Opção          | Descrição                                                     |
+| -------------- | ------------------------------------------------------------- |
+| Busca avançada | Adiciona parâmetros na busca.                                 |
+| Preço          | Parâmetro de serviços baratos, caros ou dentro do orçamento.  |
+| Localização    | Parâmetro de serviços proximos do usuário.                    |
+| Avaliação      | Parâmetro de serviços mais avaliados.                         |
+
+<br />
+
+### US13 - Implementar funcionalidade de pesquisa avançada de prestadores de serviço.
+
+*Usuário*
+
+| User Story                                                                                                                                                                                                         | Critério de aceitação                                         |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| Enquanto *Usuário* eu preciso ser capaz de ao pesquisar, poder realizar *pesquisas avançadas* para que eu *tenha um controle melhor de minha busca de acordo com as minhas preferências do serviço.* | Certifique-se de que o usuário está logado e *pesquisando*. |
+
+ <br />
+
+### Prototipação de telas
+*Aba de pesquisa avançada na tela de pesquisa*
+
+![WhatsApp Image 2023-09-12 at 21 47 48](https://github.com/ViniciusDevelopment/EngSoft-2023.2/assets/67427291/d6620940-338f-4bf3-a88e-2c5a159618c3)
+
+
+<br/>
+
+---
+
+## *RF14 - Oferecer suporte a diferentes métodos de pagamento.*
+
+<br/>
+
+#### Autor: [Raphael Sales de Souza](https://github.com/raphaelsales)
+
+#### Revisor: [Pedro Trivelato](https://github.com/Ptrivelato)
+
+<br/>
+
+| Item            |Descrição                                                                                        |
+| --------------- | ----------------------------------------------------------------------------------------------- |
+| Caso de uso     | RF14 - Oferecer suporte a diferentes métodos de pagamento;                                      |
+| Resumo          | Responsável por oferecer suporte ao usuário para alterar ou adicionar mais opções de pagamento; |
+| Ator principal  | Usuário - Editar forma de pagamento;                                                            |
+| Ator secundário | -                                                                                               |
+| Pré-condição    | Ter acesso ao aplicativo, e ter uma conta adicionada;                                           |
+| Pós-condição    | Ter um método de pagamento capaz de efetuar uma compra de serviço;                              |
+
+<br/>
+
+#### Fluxo principal
+
+| Passos  | Descrição                                                                        |
+| ------- | -------------------------------------------------------------------------------- |
+| Passo 1 | O usuário faz login no aplicativo.                                               |
+| Passo 2 | O usuário acessa a tela de Perfil.                                               |
+| Passo 3 | O usuário clica no botão de formas de pagamento.                                 |
+| Passo 4 | O usuário clica em adicionar, alterar ou exclui a forma de pagamento desejada.   |
+| Passo 5 | O usuário preenche as informações necessárias.                                   |
+| Passo 6 | O método de pagamento é validado e pronto para ser usado.                        |
+
+<br/>
+
+#### Campos do Formulário
+
+| Campo              | Obrigatório                | Formato      |
+| ------------------ | ---------------------------|------------- |
+| Nome do titular    | Sim                        | Texto        |
+| Número do cartão   | Sim                        | Texto        |
+| Data de vencimento | Sim                        | Texto        |
+| Digitar o CVV      | Sim                        | Texto        |
+| Email              | Sim                        | Texto        |
+| Senha              | Sim                        | Texto        |
+
+<br />
+
+#### Opções de usuário
+
+
+| Opção             | Descrição                                                     |
+| ----------------- | ------------------------------------------------------------- |
+| Cartão de credito | Adiciona como método de pagamento.                            |
+| PIX               | Adiciona como método de pagamento.                            |
+| Boleto            | Adiciona como método de pagamento.                            |
+| Paypal            | Adiciona como método de pagamento.                            |
+
+<br />
+
+#### Relatório de usuário
+
+| Campo                      | Descrição                                                                                   | Formato |
+| -------------------------- | ------------------------------------------------------------------------------------------- | ------- |
+| Forma de pagamento aceita  | Isso confirma e garante o êxito na operação de adicionar ou alterar a forma de pagamento.   | Texto   |
+
+<br />
+
+#### Fluxo alternativo
+
+| Passos  | Descrição                                                                                  |
+| ------- | ------------------------------------------------------------------------------------------ |
+| Passo 1 | Estar no aplicativo e clicar na seção de serviços.                                         |
+| Passo 2 | Clicar no botão pagar serviço.                                                             |
+| Passo 3 | Escolher qual serviço prestado pagar.                                                      |
+| Passo 4 | Escolher método de pagamento.                                                              |
+| Passo 5.1 | O usuário clica em adicionar, alterar ou exclui a forma de pagamento desejada.           |
+| Passo 5.2 | O ator tenta adicionar um método de pagamento que já foi cadastrado.                     |
+| Passo 5.3 | O sistema acusa que a método de pagamento em questão já existe.                          |
+| Passo 6.1 | O usuário preenche as informações necessárias.                                           |
+| Passo 6.2 | O ator tenta adicionar um método de pagamento que as informações não são válidas.        |
+| Passo 6.3 | O sistema acusa que a método de pagamento em questão não é válido.                       |
+
+<br/>
+
+### US14 - Oferecer suporte a diferentes métodos de pagamento.
+
+*Atores*
+
+| User Story                                                                                                                                                                                                                           | Critério de aceitação                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| Enquanto um *ator* eu preciso ser capaz de *editar, adicionar e excluir* métodos de pagamentos para que *eu possa ter mais acessibilidade no pagamento* e *mais segurança nas minhas informações financeiras*. | Certifique-se de que o método de pagamento posto pelo usuário é válido.  |
+
+<br />
+
+### Prototipação de telas
+*Tela de método de pagamento*
+
+![WhatsApp Image 2023-09-12 at 21 34 19](https://github.com/ViniciusDevelopment/EngSoft-2023.2/assets/67427291/1c874d5b-53a4-498d-8460-1f3d30d1001b)
+
+<br/>
+
+---
+
+## Requisitos não funcionais
+
+**RNF01 - Usabilidade:**<br/>
+A interface de usuário deve ser intuitiva e de fácil utilização, garantindo que os usuários possam navegar e usar a plataforma sem dificuldades.
+
+*RNF02 - Desempenho:* <br/>
+A plataforma deve ser responsiva e garantir tempos de carregamento rápidos, mesmo quando há um grande número de usuários acessando simultaneamente.
+
+**RNF03 - Segurança:**<br/>
+As informações dos usuários, como dados pessoais e informações de pagamento, devem ser armazenadas de forma segura e protegidas contra acesso não autorizado.
+
+**RNF04 - Escalabilidade:**<br/>
+A plataforma deve ser projetada para escalar facilmente, permitindo que mais usuários e prestadores de serviços sejam adicionados sem comprometer o desempenho.
+
+*RNF05 - Confiabilidade:* <br/>
+A plataforma deve ser altamente confiável, minimizando o tempo de inatividade e garantindo que os serviços estejam disponíveis a maior parte do tempo.
+
+**RNF06 - Manutenibilidade:**<br/>
+O código-fonte da plataforma deve ser bem documentado e organizado, facilitando a manutenção e implementação de futuras atualizações.
+
+**RNF07 - Compatibilidade do Navegador:**<br/>
+A plataforma deve ser compatível com uma variedade de navegadores da web, garantindo que os usuários possam acessá-la independentemente do navegador que utilizam.
+
+*RNF08 - Acessibilidade:* <br/>
+A plataforma deve ser acessível a pessoas com deficiência, seguindo as diretrizes de acessibilidade da Web (WCAG) para garantir uma experiência inclusiva.
+
+**RNF09 - Disponibilidade:**<br/>
+A plataforma deve estar disponível 24 horas por dia, 7 dias por semana, com manutenção programada realizada fora do horário de pico.
+
+*RNF10 - Proteção de Dados:* <br/>
+Todas as transações financeiras e informações pessoais dos usuários devem ser protegidas por criptografia de ponta a ponta para garantir a privacidade e segurança dos dados.
+
+======
