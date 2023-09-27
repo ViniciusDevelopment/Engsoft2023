@@ -343,9 +343,367 @@ Os principais entregáveis deste projeto incluem:
 ![image](https://github.com/ViniciusDevelopment/EngSoft-2023.2/assets/67427291/b6d7912e-bb58-4063-9207-737a786b53a0)
 
 
+<br />
+---
+
+## **RF02 - Cadastrar usuário**
+
+<br/>
+
+#### Autor: [Antonio Cassio de Oliveira Neto](https://github.com/ACNprogrammer/)
+
+#### Revisor: [Raphael Sales de Souza](https://github.com/raphaelsales)
+
+<br/>
+
+| Item            | Descrição                                                                           |
+| --------------- | ----------------------------------------------------------------------------------- |
+| Caso de uso     | RF02 - Cadastrar usuário;                                                       |
+| Resumo          | Cadastrar um usuário no sistema; |
+| Ator principal  | Usuário;                                                    |
+| Ator secundário | -                                                                                   |
+| Pré-condição    | -                          |
+| Pós-condição    |                                                                                    |
+
+<br/>
+
+#### Fluxo principal
+
+| Passos  | Descrição                                           |
+| ------- | --------------------------------------------------- |
+| Passo 1 | O usuário digita seus dados cadastrais nos campos adequados.            |
+| Passo 2 | Ao clicar no botão 'cadastrar' no final do formulário, o usuário é cadastrado. |
+
+<br/>
+
+#### Opções dos usúarios
+
+| Opção            | Descrição | Atalho |
+| ---------------- | ------------ | --------- |
+| Cadastrar | Cadastra um novo usuário          | Não possui       |
+| Realizar login             | Redireciona o usuário para a tela de login          | Não possui       |
+
+<br/>
+
+#### Relatório de usuário
+
+| Campo                      | Descrição                                                             | Formato |
+| -------------------------- | --------------------------------------------------------------------- | ------- |
+| Cadastro realizado com sucesso | Informa que o cadastro foi efetuado com sucesso  | Texto   |
+| Erro ao realizar o cadastro | Informa que ocorreu um erro durante o cadastro  | Texto   |
+| Senha e confirmar senha não conferem | Informa a senha e a confirmação da senha estão diferentes  | Texto   |
+<br/>
+
+
+
+| Item            | Descrição                                                                           |
+| --------------- | ----------------------------------------------------------------------------------- |
+| Caso de uso     | RF01 - Cadastrar prestador de serviço;                                                       |
+| Resumo          | Cadastrar um prestador de serviço ao sistema; |
+| Ator principal  | Prestador de serviço;                                                    |
+| Ator secundário | -                                                                                   |
+| Pré-condição    | -                          |
+| Pós-condição    |                                          |
+
+<br/>
+
+#### Fluxo principal
+
+| Passos  | Descrição                                           |
+| ------- | --------------------------------------------------- |
+| Passo 1 | O prestador digita seus dados cadastrais nos campos adequados.            |
+| Passo 2 | Após preencher seus dados o prestador deve marcar a opção 'sou um prestador de serviços'. |
+| Passo 3 | Ao clicar no botão 'cadastrar' no final do formulário, o prestador de serviços é cadastrado. |
+
+<br/>
+
+#### Campos do formulário
+
+| Campo            | Obrigatório? | Editável? | Formato      |
+| ---------------- | ------------ | --------- | ------------ |
+| Nome  | Sim          | Sim       | Texto        |
+| Email             | Sim          | Sim       | Email         |
+| Senha            | Sim          | Sim       | Password        |
+| Confirmar senha  | Sim          | Não       | Password        |
+
+<br/>
+
+#### Opções dos usúarios
+
+| Opção            | Descrição | Atalho |
+| ---------------- | ------------ | --------- |
+| Cadastrar | Cadastra um novo prestador de serviço          | Não possui       |
+| Realizar login             | Redireciona o prestador para a tela de login          | Não possui       |
+
+<br/>
+
+#### Relatório de usuário
+
+| Campo                      | Descrição                                                             | Formato |
+| -------------------------- | --------------------------------------------------------------------- | ------- |
+| Cadastro realizado com sucesso | Informa que o cadastro foi efetuado com sucesso  | Texto   |
+| Erro ao realizar o cadastro | Informa que ocorreu um erro durante o cadastro  | Texto   |
+| Senha e confirmar senha não conferem | Informa a senha e a confirmação da senha estão diferentes  | Texto   |
+
+<br/>
+
+### US01 - Cadastrar prestador de serviço
+
+**Prestador de serviços**
+
+| User Story | Critério de aceitação |
+| --------- | --------------------- |
+| Enquanto **um prestador de serviços** eu preciso ser capaz de **criar uma conta** para que **eu possa oferecer meus seerviços** | O **prestador de serviços** deve poder se cadastrar no sistema.|
+
+<br />
+
+### Prototipação de telas
+**Tela de cadastro com marcação da opção 'Sou um prestador de serviços'**
+
+![image](https://github.com/ViniciusDevelopment/EngSoft-2023.2/assets/67427291/b6d7912e-bb58-4063-9207-737a786b53a0)
+
 
 <br />
 ---
 
+## **RF02 - Cadastrar usuário**
+
+<br/>
+
+#### Autor: [Antonio Cassio de Oliveira Neto](https://github.com/ACNprogrammer/)
+
+#### Revisor: [Raphael Sales de Souza](https://github.com/raphaelsales)
+
+<br/>
+
+| Item            | Descrição                                                                           |
+| --------------- | ----------------------------------------------------------------------------------- |
+| Caso de uso     | RF02 - Cadastrar usuário;                                                       |
+| Resumo          | Cadastrar um usuário no sistema; |
+| Ator principal  | Usuário;                                                    |
+| Ator secundário | -                                                                                   |
+| Pré-condição    | -                          |
+| Pós-condição    |                                                                                    |
+
+<br/>
+
+#### Fluxo principal
+
+| Passos  | Descrição                                           |
+| ------- | --------------------------------------------------- |
+| Passo 1 | O usuário digita seus dados cadastrais nos campos adequados.            |
+| Passo 2 | Ao clicar no botão 'cadastrar' no final do formulário, o usuário é cadastrado. |
+
+<br/>
+
+#### Opções dos usúarios
+
+| Opção            | Descrição | Atalho |
+| ---------------- | ------------ | --------- |
+| Cadastrar | Cadastra um novo usuário          | Não possui       |
+| Realizar login             | Redireciona o usuário para a tela de login          | Não possui       |
+
+<br/>
+
+#### Relatório de usuário
+
+| Campo                      | Descrição                                                             | Formato |
+| -------------------------- | --------------------------------------------------------------------- | ------- |
+| Cadastro realizado com sucesso | Informa que o cadastro foi efetuado com sucesso  | Texto   |
+| Erro ao realizar o cadastro | Informa que ocorreu um erro durante o cadastro  | Texto   |
+| Senha e confirmar senha não conferem | Informa a senha e a confirmação da senha estão diferentes  | Texto   |
+<br/>
+
+ ### US02 - Cadastrar usuário
+
+**Usuário**
+
+| User Story | Critério de aceitação |
+| --------- | --------------------- |
+| Enquanto **um usuário do aplicativo** eu preciso ser capaz de **me cadastrar no sistema** para que **eu possa analisar e solicitar serviços.**| O usuário deve poder se cadastrar no sistema|
+
+<br />
+
+### Prototipação de telas
+**Tela de cadastro sem marcação da opção 'Sou um prestador de serviços'**
+
+![image](https://github.com/ViniciusDevelopment/EngSoft-2023.2/assets/67427291/6f547212-51ae-418c-93f2-8621523d6478)
+
+
+<br/>
+
+---
+
+## **RF03 - Realizar Login**
+
+<br/>
+
+#### Autor: [Vinícius Maciel Pires](https://github.com/ViniciusDevelopment/)
+
+#### Revisor: [Antonio Cassio de Oliveira Neto](https://github.com/ACNprogrammer/)
+
+<br/>
+
+| Item            | Descrição                                                                           |
+| --------------- | ----------------------------------------------------------------------------------- |
+| Caso de uso     | RF03 - Realizar Login;                                                       |
+| Resumo          | Realizar o login dos atores; |
+| Ator principal  | Usuario/Prestador de serviço;                                                    |
+| Ator secundário | -                                                                             |
+| Pré-condição    | O(s) ator(es) devem ter um cadastro no sistema.                         |
+| Pós-condição    | Os dados do(s) ator(er) devem estar corretos                                                                                      |
+
+<br/>
+
+#### Fluxo principal
+
+| Passos  | Descrição                                           |
+| ------- | --------------------------------------------------- |
+| Passo 1 | O(s) Ator(es) informam seus dados           |
+| Passo 2 | A verificação das credenciais é efetuada |
+| Passo 3 | A sessão é iniciada em caso de login correto. |
+
+<br/>
+
+#### Fluxo alternativo
+
+| Passos  | Descrição                                           |
+| ------- | --------------------------------------------------- |
+| Passo 1 | O(s) Ator(es) informam seus dados            |
+| Passo 2 | A verificação das credenciais é efetuada |
+| Passo 3 | A sessão não é iniciada e o usuário é redirecionado para a tela de login. |
+
+<br/>
+
+#### Campos do formulário
+
+| Campo            | Obrigatório? | Editável? | Formato      |
+| ---------------- | ------------ | --------- | ------------ |
+| Email             | Sim          | Sim       | Email         |
+| Senha            | Sim          | Sim       | Password        |
+
+<br/>
+
+#### Opções dos usúarios
+
+| Opção            | Descrição | Atalho |
+| ---------------- | ------------ | --------- |
+| Login | Valida as credenciais do ator          | Não possui       |
+| Cadastre-se             | Redireciona o usuario para a tela de cadastro          | Não possui       |
+
+<br />
+
+#### Relatório de usuário
+
+| Campo                      | Descrição                                                             | Formato |
+| -------------------------- | --------------------------------------------------------------------- | ------- |
+| Email e/ou senha incorretos | Informa que as credenciais são inválidas  | Texto   |
+
+<br />
+
+### US03 - Realizar Login
+
+**Prestador de serviço/Usuário**
+
+|  User Story                                        | Critério de aceitação                                 |
+| ------------------------------------------------- | ----------------------------------------------------- |
+| Enquanto **um ator do aplicativo** eu preciso ser capaz de **realizar login**, para que **eu possa ter acesso as funcionalidades do sistema** | Certifique-se de que o usuário é capaz de **acessar o aplicativo**. |
+
+<br/>
+
+### Prototipação de telas
+**Tela de login**
+
+![image](https://github.com/ViniciusDevelopment/EngSoft-2023.2/assets/67427291/3af7381b-ff75-4558-9398-b5caddd05977)
+
+
+<br />
+
+---
+
+## **RF04 - Cadastrar serviços**
+
+<br />
+
+#### Autor: [Pedro Trivelato](https://github.com/Ptrivelato)
+#### Revisor: [Jorge Antonio Motta Braga](https://github.com/jorgespark11)
+
+<br />
+
+
+|Item             | Descrição                                                           |
+| --------------- | -----------------------------------------------------------------   |
+| Caso de uso     | Cadastrar serviços                                                  |
+| Resumo          | É esperado que o prestador de serviços tenha a possibilidade de inserir seus serviços prestados|
+| Ator principal  | prestador de serviço                                 |
+| Ator secundário | -                                                          |
+| Pré-condição    | É necessário que o prestador de serviço tenha efetuado o login.            |
+| Pós-condição    | Todos os campos do formulário de cadastro de serviço devem ser preenchidos corretamente.  |
+
+<br />
+
+#### Fluxo principal
+
+| Passos  | Descrição                                                                   |
+| ------- | -----------------------------------------                                   |
+| Passo 1 | Entrar na seção de cadastro de meus serviços                                         |
+| Passo 2 | Clicar no botão "Inserir novo serviço"                                            |
+| Passo 3 | Inserir os dados adequados nos campos do formulário                                                  |
+| Passo 5 | Clicar em salvar serviço                                                                     |
+<br />
+
+#### Campos do formulário
+
+| Campo            | Obrigatório? | Editável? | Formato      |
+| ---------------- | ------------ | --------- | ------------ |
+| Nome do serviço             | Sim          | Sim       | Texto        |
+| Tipo             | Sim          | Sim       | Texto        |
+| Valor            | Sim          | Sim       | Numérico     |
+| Descrição            | Sim          | Sim       | Texto     |
+
+
+<br />
+
+#### Opções do usuário
+
+
+| Opção         | Descrição                 | Atalho |
+| ------------- | ------------------------- | ------ |
+| Adicionar serviço | Cadastra um serviço no sistema | Não possui       |
+| Cancelar | Retorna Para a tela de meus serviços | Não possui       |
+<br />
+
+#### Relatório de usuário
+
+| Campo                      | Descrição                                                             | Formato |
+| -------------------------- | --------------------------------------------------------------------- | ------- |
+| Serviço inserido com sucesso | Isso confirma e garante todo êxito na operação de inserção de serviço   | Texto   |
+| Erro ao inserir serviço | Informa que ocorreu um erro ao inserir o serviço   | Texto   |
+| Dados incorretos | Informa que os dados inseridos são inválidos   | Texto   |
+<br />
+
+
+### US04 - Cadastrar serviços
+
+**Usuário/Prestador de serviços**
+
+| User Story | Critério de aceitação |
+| --------- | --------------------- |
+| Enquanto "prestador de serviço" preciso ter meus serviços salvos na plataforma a fim de fornecer minha mão de obra. | O prestador de serviços deve ser capaz de cadastrar seus serviços. |
+
+<br/>
+
+### Prototipação de telas
+**Botão que redireciona para a tela de cadastro de serviços**
+
+![image](https://github.com/ViniciusDevelopment/EngSoft-2023.2/assets/67427291/5bf1e406-58c6-429f-8e7b-1d5d97c70af4)
+
+**Formulário de cadastro de serviço**
+
+![image](https://github.com/ViniciusDevelopment/EngSoft-2023.2/assets/67427291/d34408cc-3e23-4aad-83b8-c6155fa67ac1)
+
+
+****
+---
 
 
