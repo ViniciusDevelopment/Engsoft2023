@@ -335,6 +335,7 @@ Os principais entregáveis deste projeto incluem:
 | --------- | --------------------- |
 | Enquanto **um prestador de serviços** eu preciso ser capaz de **criar uma conta** para que **eu possa oferecer meus seerviços** | O **prestador de serviços** deve poder se cadastrar no sistema.|
 
+
 <br />
 
 ### Prototipação de telas
@@ -343,5 +344,9 @@ Os principais entregáveis deste projeto incluem:
 ![image](https://github.com/ViniciusDevelopment/EngSoft-2023.2/assets/67427291/b6d7912e-bb58-4063-9207-737a786b53a0)
 
 
+
 <br />
 ---
+
+
+
