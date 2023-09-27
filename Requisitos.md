@@ -706,4 +706,227 @@ Os principais entregáveis deste projeto incluem:
 ****
 ---
 
+## *RF05 -  Buscar serviço por critérios*
+
+<br />
+
+#### Autor: [Jorge Antonio Motta Braga](https://github.com/jorgespark11)
+#### Revisor: [Pedro Trivelato](https://github.com/Ptrivelato)
+<br />
+
+<br />
+
+|Item             | Descrição                                                         |
+| --------------- | ----------------------------------------------------------------- |
+| Caso de uso     | Buscar serviço por critérios.                                                   |
+| Resumo          | É esperado que o usuário tenha a possibilidade de buscar pelos serviços mais adequados para ele|
+| Ator principal  | Atores |
+| Ator secundário | Não possui                                                        | 
+| Pré-condição    |  É necessário que para realizar a busca conta o ator tenha feito login         |
+| Pós-condição    | Os dados de busca devem ser válidos |
+<br />
+
+#### Fluxo principal
+| Passos  | Descrição                                 |
+| ------- | ----------------------------------------- |
+| Passo 1 | Entrar na seção de Serviços               |
+| Passo 2 | Clicar no input de pesquisa                 |
+| Passo 3 | Inserir dados no campo              |
+| Passo 4 | Pesquisar                                    |
+<br />
+
+#### Campos do formulário
+| Campo            | Obrigatório? | Editável? | Formato      |
+| ---------------- | ------------ | --------- | ------------ |
+| Pesquisa             | Sim          | Sim       | Texto        |
+
+<br />
+
+#### Opções do usuário
+| Opção         | Descrição                 | Atalho |
+| ------------- | ------------------------- | ------ |
+| Pesquisar Serviço | Uma busca com base nos dados de entrada do ator é efetuada |  Não possui      |
+<br />
+
+#### Relatório de usuário
+
+| Campo                      | Descrição                                                             | Formato |
+| -------------------------- | --------------------------------------------------------------------- | ------- |
+| Nenhum serviço encontrado! | Não foi possível encontrar nenhum serviço com os parâmetros inseridos.   | Texto   |
+<br />
+
+
+### US05 - Buscar serviço por critérios
+
+*Atores*
+
+| User Story | Critério de aceitação |
+| --------- | --------------------- |
+| Enquanto "um ator" do sistema preciso poder pesquisar pelos mais diversos tipos de serviços. | Digitar corretamente no campo de pesquisa |
+
+<br/>
+
+### Prototipação de telas
+*Tela de busca de serviços*
+
+![image](https://github.com/ViniciusDevelopment/EngSoft-2023.2/assets/67427291/869cf3be-3b58-4d49-89e1-61f109522fe8)
+
+
+---
+
+## *RF06 - Enviar solicitação de serviço*
+
+<br/>
+
+#### Autor: [Jorge Antonio Motta Braga](https://github.com/jorgespark11)
+
+#### Revisor: [Wanderson Melo](https://github.com/sadMello)
+
+<br/>
+
+|Item             | Descrição                                                         |
+| --------------- | ----------------------------------------------------------------- |
+| Caso de uso     | RF06 -  Enviar solicitação de serviço.                                             |
+| Resumo          | É esperado que o ator tenha a possibilidade de Enviar solicitação de serviço.                                                                     |
+| Ator principal  | Usuário/Prestador de serviço|
+| Ator secundário | Não possui                                                        | 
+| Pré-condição    | É necessário que o ator tenha efetuado o login.        |
+| Pós-condição    | - |
+
+<br/>
+
+#### Fluxo principal
+| Passos  | Descrição                                 |
+| ------- | ----------------------------------------- |
+| Passo 1 | Entrar na aba de serviços       |
+| Passo 2 | Digitar a data da prestação do serviço |
+| Passo 3 | Clicar no botão 'Solicitar serviço' no serviço desejado|
+
+<br/>
+
+#### Campos do formulário
+| Campo            | Obrigatório? | Editável? | Formato      |
+| ---------------- | ------------ | --------- | ------------ |
+| Data         | Não          | Sim       | Data        |
+
+<br/>
+
+#### Opções do usuário
+| Opção             | Descrição                 | Atalho |
+| -------------     | ------------------------- | ------ |
+| Solicitar serviços | Solicita o serviço selecionado |        |
+
+<br/>
+
+#### Relatório de usuário
+
+| Campo      | Descrição   | Formato |
+| ---------- | ----------- |---------|
+| Erro ao solicitar o serviço | Ocorreu um erro ao solicitar o serviço |  Texto  |
+
+<br/>
+
+### US06 - Enviar solicitação de serviço
+
+*Atores*
+
+| User Story | Critério de aceitação |
+| --------- | --------------------- |
+| Enquanto *um ator* preciso ser capaz de *solicitar a prestação de serviços* para que *eu possa ressolver meus problemas* | O ator deve poder solicitar serviços dentro da plataforma.
+
+<br/>
+
+### Prototipação de telas
+*Tela com o botão de solicitar serviço*
+
+![WhatsApp Image 2023-09-12 at 21 21 00](https://github.com/ViniciusDevelopment/EngSoft-2023.2/assets/67427291/0271f42b-cd74-4ad5-bd77-9d6e3a2f8246)
+
+*Segunda etapa da tela*
+
+![WhatsApp Image 2023-09-12 at 21 32 28](https://github.com/ViniciusDevelopment/EngSoft-2023.2/assets/67427291/371da8a6-a520-4bea-852e-cc58112d47cb)
+
+---
+
+## *RF07 -  Responder solicitação de serviço*
+
+<br/>
+
+#### Autor: [Wanderson Melo](https://github.com/sadMello)
+
+#### Revisor: [Jorge Antonio Motta Braga](https://github.com/jorgespark11)
+
+<br/>
+
+|Item             | Descrição                                                         |
+| --------------- | ----------------------------------------------------------------- |
+| Caso de uso     | O prestador pode responder as solicitações de serviço                                |
+| Resumo          | Visualiza o somatório das despesas que o usário teve no mês       |
+| Ator principal  | Prestador de serviços                                 |
+| Ator secundário | Não possui                                                        | 
+| Pré-condição    |É necessário que o ator tenha efetuado o login.                                                                               |
+| Pós-condição    | Não possui                                                        | 
+
+<br/>
+
+#### Fluxo principal
+| Passos  | Descrição                                 |
+| ------- | ----------------------------------------- |
+| Passo 1 | Entrar na página de respostas a solicitações de serviços        |
+| Passo 2 | Visualizar as solicitações           |
+| Passo 3 | Responder as solicitações           |
+
+<br/>
+
+#### Campos do formulário
+| Campo            | Obrigatório? | Editável? | Formato      |
+| ---------------- | ------------ | --------- | ------------ |
+| Descrição         | Não          | Sim       | Texto        |
+
+<br/>
+
+#### Opções do usuário
+| Opção             | Descrição                                                         | Atalho |
+| ----------------- | ----------------------------------------------------------------- | ------ |
+| Aprovar solicitação | Trocar o status da requisição para aprovado. |  Não possui  |
+| Reprovar solicitação | Trocar o status da requisição para reprovado. |  Não possui  |
+| Em análise | Trocar o status da requisição para em análise. |  Não possui  |
+
+<br/>
+
+#### Relatório de usuário
+
+| Campo      | Descrição  | Formato |
+| ---------- | ---------- | ------- |
+| Solicitação alterada com sucesso |   Status da solicitação foi alterado         |    Texto     |
+
+<br/>
+
+#### Fluxo alternativo
+| Passos    | Descrição                                               |
+| --------  | ------------------------------------------------------- |
+| Passo 1.1 | O sistema não possui nenhum serviço cadastrado                   |
+| Passo 1.2 | O sistema informa que não existem serviços cadastradas  |
+<br />
+
+### Prototipação de telas
+*Tela enviar solicitação de serviços*
+
+
+### US07 -  Responder solicitação de serviço
+
+*Prestador de serviço*
+
+| User Story | Critério de aceitação |
+| --------- | --------------------- |
+| Enquanto um *prestador de serviço* eu preciso ser capaz de *responder as solicitações de serviço* para que *eu possa ter um controle melhor da minha profissão*. | O prestador deve poder responder as solicitações de serviço. 
+
+<br/>
+
+### Prototipação de telas
+*Tela de resposta a solicitação de serviço*
+
+![image](https://github.com/ViniciusDevelopment/EngSoft-2023.2/assets/67427291/34839923-b3c8-4804-a978-036bc3c4b05f)
+
+
+---
 
