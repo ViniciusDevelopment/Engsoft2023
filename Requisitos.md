@@ -930,3 +930,292 @@ Os principais entregáveis deste projeto incluem:
 
 ---
 
+## RF08 - Realizar o pagamento pelo serviço prestado.
+
+<br/>
+
+#### Autor: [Wanderson Melo](https://github.com/sadMello)
+
+#### Revisor: [Vinícius Maciel Pires](https://github.com/ViniciusDevelopment/)
+
+<br/>
+
+|Item             | Descrição                                                                                                                                      |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Caso de uso     | RF08 - Realizar o pagamento pelo serviço prestado;                                                                                             |
+| Resumo          | É esperado que o usuário consiga através dos método de pagamento escolhido, realizar o pagamento do serviço usado para o prestador do serviço; |
+| Ator principal  | Usuário que faz uso da plataforma;                                                                                                             |
+| Ator secundário | Prestador do serviço escolhido pelo usúario;                                                                                                   |
+| Pré-condição    | É necessário que o usuário tenha uma conta na platarforma, tenha um método de pagamento e tenha comprado um serviço;                           |
+| Pós-condição    | É necessário que o pagamento do usúario tenha sido efetuado para o prestador de serviço e para a platarforma;                                  |
+
+<br />
+
+#### Fluxo principal
+| Passos  | Descrição                                          |
+| ------- | -------------------------------------------------- |
+| Passo 1 | Entrar no aplicativo e fazer login.                |
+| Passo 2 | Estar no aplicativo e clicar na seção de serviços. |
+| Passo 3 | Clicar no botão pagar serviço.                     |
+| Passo 4 | Escolher qual serviço prestado pagar.              |
+| Passo 5 | Escolher método de pagamento.                      |
+| Passo 6 | Efetuar pagamento.                                 |
+
+<br />
+
+#### Campos do formulário
+| Campo                           | Obrigatório? | Editável? | Formato         |
+| ------------------------------- | ------------ | --------- | --------------- |
+| Método de pagamento             | Sim          | Sim       | Texto           |
+| Preço do serviço                | Sim          | Não       | Numérico        |
+| Nome do serviço                 | Sim          | Não       | Texto           |
+| Prestador do serviço            | Sim          | Não       | Texto           |
+<br />
+
+#### Opções do usuário
+| Opção                          | Descrição                 | Atalho |
+| ------------------------------ | ------------------------- | ------ |
+| Selecionar serviço             | Confirmar dados inseridos |        |
+| Selecionar método de pagamento | Confirmar dados inseridos |        |
+| Efetuar pagamento              | Confirmar dados inseridos |        |
+<br />
+
+#### Relatório de usuário
+
+| Campo                           | Descrição                                                                | Formato |
+| ------------------------------- | ------------------------------------------------------------------------ | ------- |
+| Pagamento realizado com sucesso | Isso confirma e garante todo êxito na operação de pagamento do serviço   | Texto   |
+<br />
+
+#### Fluxo alternativo
+| Passos    | Descrição |
+| --------  | ---------------------------------------------------------------------------------------------- |
+| Passo 1.1 | O ator tenta adicionar um método de pagamento que já foi cadastrado.                           |
+| Passo 1.2 | O sistema acusa que a método de pagamento em questão já existe.                                |
+| Passo 2.1 | O ator tenta adicionar um método de pagamento que não é válido.                                |
+| Passo 2.2 | O sistema acusa que a método de pagamento em questão não é válido.                             |
+| Passo 3.1 | O ator não possui saldo suficiente para o pagamento do serviço.                                |
+| Passo 3.2 | O sistema exibe que não foi possível concluir a operação.                                      |
+<br />
+
+### US08 - Realizar o pagamento seguro pelo serviço prestado.
+
+*Usuário*
+
+| User Story                                                                                | Critério de aceitação                         |
+| ----------------------------------------------------------------------------------------- | --------------------------------------------- |
+| Enquanto "usuário comum" preciso ser capaz de efetuar o pagamento do serviço que comprei. | Certificar que todos campos estão preenchidos |
+
+<br />
+
+### Prototipação de telas
+*Tela de pagamento de serviço com aopção do serviço prestado, com a opção de método de pagamento e com a opção de efetuar pagamento*
+
+![WhatsApp Image 2023-09-12 at 21 34 19](https://github.com/ViniciusDevelopment/EngSoft-2023.2/assets/67427291/1c874d5b-53a4-498d-8460-1f3d30d1001b)
+
+
+<br/>
+
+---
+
+## RF09 - Avaliar e revisar prestadores de serviço.
+
+<br/>
+
+#### Autor: [Vinícius Maciel Pires](https://github.com/ViniciusDevelopment/)
+
+#### Revisor: [Antonio Cassio de Oliveira Neto](https://github.com/ACNprogrammer/)
+
+<br/>
+
+|Item             | Descrição                                                                                                 |
+| --------------- | --------------------------------------------------------------------------------------------------------- |
+| Caso de uso     | RF09 - Avaliar e revisar prestadores de serviço;                                                          |
+| Resumo          | É esperado que o usuário tenha a possibilidade de olhar e fazer uma avaliação dos prestadores de serviço; |
+| Ator principal  | Usuário que faz uso da plataforma;                                                                        |
+| Ator secundário | Atores;                                                                                     |
+| Pré-condição    | É necessário que o usuário tenha uma conta na plataforma;                                                 |
+| Pós-condição    | É necessário que a avaliação seja visível para os usúarios e para o prestador de serviço;                 |
+<br />
+
+#### Fluxo principal
+| Passos  | Descrição                                            |
+| ------- | ---------------------------------------------------- |
+| Passo 1 | Entrar no aplicativo e fazer login.                  |
+| Passo 2 | Estar no aplicativo e clicar na seção de serviços.   |
+| Passo 3 | Pesquisar pelo prestador de serviço em questão.      |
+| Passo 7 | Clicar na seção de avaliações.                       |
+| Passo 4 | Clicar no botão de fazer uma avaliação.              |
+| Passo 5 | Fazer a avaliação do prestador de serviço.           |
+| Passo 6 | Salvar e enviar a avaliação.                         |
+<br />
+
+#### Campos do formulário
+| Campo               | Obrigatório? | Editável? | Formato      |
+| ------------------- | ------------ | --------- | ------------ |
+| Nome do usúario     | Sim          | Não       | Texto        |
+| Nome do prestador   | Sim          | Não       | Texto        |
+| Comentário          | Não          | Sim       | Texto        |
+| Número de estrelas  | Sim          | Sim       | Numérico     |
+| Enviar avaliação    | Sim          | Sim       | Texto        |
+| Data da avaliação   | Sim          | Não       | Texto        |
+<br />
+
+#### Opções do usuário
+| Opção           | Descrição                 | Atalho |
+| --------------- | ------------------------- | ------ |
+| Avaliar         | Confirmar dados inseridos |        |
+<br />
+
+#### Relatório de usuário
+
+| Campo                      | Descrição                                                                              | Formato |
+| -------------------------- | -------------------------------------------------------------------------------------- | ------- |
+| Avaliação concluída        | Isso confirma e garante todo êxito na operação de avaliação do prestador de serviço.   | Texto   |
+
+<br />
+
+### US09 - Avaliar e revisar prestadores de serviço.
+
+*Atores*
+
+| User Story | Critério de aceitação |
+| ---------- | --------------------- |
+| Enquanto *usuário comum* preciso ter a possibilidade de avaliar um prestador de serviços e ver suas avaliações. | Certificar que todos campos estão preenchidos. |
+
+<br />
+
+### Prototipação de telas
+*Tela de prestadores de serviços, com a seção de avaliações e com o botão de 'fazer uma avaliação'*
+
+![WhatsApp Image 2023-09-12 at 21 23 43](https://github.com/ViniciusDevelopment/EngSoft-2023.2/assets/67427291/593299cf-d904-4bc8-b587-6e64e96ee817)
+
+
+<br/>
+
+---
+
+## *RF10 - Manter perfis de prestadores de serviço atualizados.*
+
+<br/>
+
+#### Autor: [Antonio Cassio de Oliveira Neto](https://github.com/ACNprogrammer/)
+
+### Revisor: [Wanderson Melo](https://github.com/sadMello)
+
+<br/>
+
+| Item            | Descrição                                                                                                |
+| --------------- | -------------------------------------------------------------------------------------------------------- |
+| Caso de uso     | RF10 - Manter perfis de prestadores de serviço atualizados;                                              |
+| Resumo          | Responsável por manter atualizado as informações de perfil do prestador de serviço caso sejam alteradas; |
+| Ator principal  | Prestador de serviços - Responsável pelas informações e suas futuras alterações;                         |
+| Ator secundário | -                                                                                                        |
+| Pré-condição    | Ter cadastro como prestador de serviço no aplicativo e estar logado;                                     |
+| Pós-condição    | Ter suas informações de perfil atualizadas para quem esteja visualizando;                                |
+
+<br/>
+
+#### Fluxo principal
+
+| Passos  | Descrição                                                         |
+| ------- | ----------------------------------------------------------------- |
+| Passo 1 | Entrar no aplicativo e fazer login.                               |  
+| Passo 2 | O usuário ter cadastro como prestador de serviços.                |
+| Passo 3 | Acessar a seção do Perfil de prestador de serviço.                |
+| Passo 4 | Clicar no botão de alterar as informações de Perfil.              |
+| Passo 5 | Salvar as alterações.                                             |
+| Passo 6 | Atualizar o perfil.                                               |
+
+<br/>
+
+#### Campos do formulário
+
+| Campo                 | Obrigatório? | Editável? | Formato      |
+| --------------------- | ------------ | --------- | ------------ |
+| Nome                  | Sim          | Sim       | Texto        |
+| Email                 | Sim          | Sim       | Email        |
+| Descrição do serviço  | Sim          | Sim       | Texto        |
+| Foto                  | Sim          | Sim       | Jpeg         |
+| Localização           | Não          | Sim       | Texto        |
+| Preço                 | Sim          | Sim       | Numérico     |
+| Ocupação              | Não          | Sim       | Texto        |
+
+<br/>
+
+### US10 - Manter perfis de prestadores de serviço atualizados.
+
+*Prestador de serviço*
+
+|  User Story                                                                                                                                                  | Critério de aceitação                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
+| Enquanto *um prestador de serviço* eu preciso ser capaz de *Verificar e alterar minhas informações de perfil* para que *meu perfil esteja atualizado.* | Certifique-se de que o usuário é cadastrado como *prestador de serviço* e é capaz de *acessar o aplicativo*. |
+
+<br />
+
+### Prototipação de telas
+*Tela de perfil com botão para editar as informações de perfil*
+
+![WhatsApp Image 2023-09-12 at 21 53 57](https://github.com/ViniciusDevelopment/EngSoft-2023.2/assets/67427291/924a0abe-29b9-467a-80b9-12c4b3fb0593)
+
+
+
+<br/>
+
+---
+## *RF11 - Notificar usuários sobre atualizações em solicitações de serviço.*
+
+<br/>
+
+#### Autor: [Jorge Antonio Motta Braga](https://github.com/jorgespark11)
+
+#### Revisor: [Antonio Cassio de Oliveira Neto](https://github.com/ACNprogrammer/)
+
+<br/>
+
+| Item            | Descrição                                                                                                       |
+| --------------- | --------------------------------------------------------------------------------------------------------------- |
+| Caso de uso     | RF11 - Notificar usuários sobre atualizações em solicitações de serviço;                                        |
+| Resumo          | O usuário recebe uma notificação do aplicativo se a solicitação de serviço foi aceita, recusada ou concluída;   |
+| Ator principal  | Usuário que fez a solicitação de serviço;                                                                       |
+| Ator secundário | -                                                                                                               |
+| Pré-condição    | Usuário estar logado no aplicativo e ter solicitado um serviço;                                                 |
+| Pós-condição    | Usuário receber uma notificação                                                                                 |
+
+<br/>
+
+#### Fluxo principal
+
+| Passos    | Descrição                                                                |
+| --------- | ------------------------------------------------------------------------ |
+| Passo 1   | O usuário estar logado no aplicativo.                                    |
+| Passo 2   | O usuário ter feito uma solicitação de serviço.                          |
+| Passo 3   | O prestador de serviço escolhido pelo usuário responder a solicitação.   |
+| Passo 4.1 | O usuário recebe uma notificação que a solicitação foi aceito.           |
+| Passo 4.2 | O usuário recebe uma notificação que a solicitação foi recusado.         |
+| Passo 4.3 | O usuário recebe uma notificação que o serviço foi concluído.            |
+
+<br />
+
+### US11 - Notificar usuários sobre atualizações em solicitações de serviço.
+
+*Usuário*
+
+![WhatsApp Image 2023-09-12 at 22 10 57](https://github.com/ViniciusDevelopment/EngSoft-2023.2/assets/67427291/2fc676ab-fdfe-490f-9cff-4a06e3927500)
+
+
+
+|  User Story                                                                                                                                                  | Critério de aceitação                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
+|"Enquanto um *usuário, eu preciso visualizar e ser *notificado se minha solicitação foi aceita ou recusada, caso tenha sido aceita, é preciso notificar sua conclusão." |  Certificar que o usuário tenha feito uma solicitação. |
+
+
+
+<br />
+
+### Prototipação de telas
+*Tela de notificações dentro da seção de serviços*
+
+<br/>
+
+---
