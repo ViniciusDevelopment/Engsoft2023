@@ -25,4 +25,6 @@ use \App\Http\Router;
 //$obRouter->run()->sendResponse();
 
 //exit;
+
+
 header("location: resources/View/Pages/Login.php");
