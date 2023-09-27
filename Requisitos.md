@@ -335,7 +335,6 @@ Os principais entregáveis deste projeto incluem:
 | --------- | --------------------- |
 | Enquanto **um prestador de serviços** eu preciso ser capaz de **criar uma conta** para que **eu possa oferecer meus seerviços** | O **prestador de serviços** deve poder se cadastrar no sistema.|
 
-
 <br />
 
 ### Prototipação de telas
