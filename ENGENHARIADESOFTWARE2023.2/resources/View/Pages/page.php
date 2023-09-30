@@ -40,29 +40,12 @@ $decoded = JWT::decode($token, new Key($chaveSecreta, 'HS256'));
 <body>
 
 <header>
-    <div class="collapse bg-dark" id="navbarHeader">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 col-md-7 py-4">
-                    <h4 class="text-white">About</h4>
-                    <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
-                </div>
-                <div class="col-sm-4 offset-md-1 py-4">
-                    <h4 class="text-white">Contact</h4>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">Follow on Twitter</a></li>
-                        <li><a href="#" class="text-white">Like on Facebook</a></li>
-                        <li><a href="#" class="text-white">Email me</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <div class="navbar navbar-dark bg-dark box-shadow">
         <div class="container d-flex justify-content-between">
             <a href="#" class="navbar-brand d-flex align-items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-                <strong>Album</strong>
+            <img src="..\Assets\logo.png" alt="Logo da Empresa" width="100" height="100">
+                <strong>Skillsync</strong>
             </a>
 <!--            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">-->
 <!--                <span class="navbar-toggler-icon"></span>-->
@@ -85,9 +68,9 @@ $decoded = JWT::decode($token, new Key($chaveSecreta, 'HS256'));
 
     <section class="jumbotron text-center">
         <div class="container">
-            <h1 class="jumbotron-heading">Album example</h1>
+            <!-- <h1 class="jumbotron-heading">Album example</h1>
             <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
-            <p>
+            <p> -->
                 <a href="page.php?arquivo=CadastrarServiço&id=" class="btn btn-primary my-2">Adicionar um serviço</a>
                 <a href="page.php?arquivo=Home&id=" class="btn btn-secondary my-2">Buscar um serviço</a>
             </p>
@@ -124,45 +107,37 @@ $decoded = JWT::decode($token, new Key($chaveSecreta, 'HS256'));
             <small class="d-block mb-3 text-muted">© 2023</small>
         </div>
         <div class="col-6 col-md">
-            <h5>Features</h5>
+            <h5>Recursos</h5>
             <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="#">Cool stuff</a></li>
-                <li><a class="text-muted" href="#">Random feature</a></li>
-                <li><a class="text-muted" href="#">Team feature</a></li>
-                <li><a class="text-muted" href="#">Stuff for developers</a></li>
-                <li><a class="text-muted" href="#">Another one</a></li>
-                <li><a class="text-muted" href="#">Last time</a></li>
+                <li><a class="text-muted" href="#">Recursos legais</a></li>
+                <li><a class="text-muted" href="#">Recurso aleatório</a></li>
+                <li><a class="text-muted" href="#">Recurso da equipe</a></li>
+                <li><a class="text-muted" href="#">Coisas para desenvolvedores</a></li>
+                <li><a class="text-muted" href="#">Outro</a></li>
+                <li><a class="text-muted" href="#">Última vez</a></li>
             </ul>
         </div>
         <div class="col-6 col-md">
-            <h5>Resources</h5>
+            <h5>Recursos</h5>
             <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="#">Resource</a></li>
-                <li><a class="text-muted" href="#">Resource name</a></li>
-                <li><a class="text-muted" href="#">Another resource</a></li>
-                <li><a class="text-muted" href="#">Final resource</a></li>
+                <li><a class="text-muted" href="#">Recurso</a></li>
+                <li><a class="text-muted" href="#">Nome do recurso</a></li>
+                <li><a class="text-muted" href="#">Outro recurso</a></li>
+                <li><a class="text-muted" href="#">Recurso final</a></li>
             </ul>
         </div>
         <div class="col-6 col-md">
-            <h5>Resources</h5>
+            <h5>Sobre</h5>
             <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="#">Business</a></li>
-                <li><a class="text-muted" href="#">Education</a></li>
-                <li><a class="text-muted" href="#">Government</a></li>
-                <li><a class="text-muted" href="#">Gaming</a></li>
-            </ul>
-        </div>
-        <div class="col-6 col-md">
-            <h5>About</h5>
-            <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="#">Team</a></li>
-                <li><a class="text-muted" href="#">Locations</a></li>
-                <li><a class="text-muted" href="#">Privacy</a></li>
-                <li><a class="text-muted" href="#">Terms</a></li>
+                <li><a class="text-muted" href="#">Equipe</a></li>
+                <li><a class="text-muted" href="#">Localizações</a></li>
+                <li><a class="text-muted" href="#">Privacidade</a></li>
+                <li><a class="text-muted" href="#">Termos</a></li>
             </ul>
         </div>
     </div>
 </footer>
+
 
 </body>
 </html>

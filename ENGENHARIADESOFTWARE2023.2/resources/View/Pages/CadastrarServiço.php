@@ -1,6 +1,14 @@
+<?php
+require_once '..\..\..\app\Controller\Pages\Servicos.php';
+use \App\Controller\Pages\Servico;
+$Servico = new Servico;
+?>
+
+
+
 <div class="container mt-5">
         <h1>Cadastro de Serviço</h1>
-        <form action="processar_formulario.php" method="POST" enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="nomeServico" class="form-label">Nome do Serviço</label>
                 <input type="text" class="form-control" id="nomeServico" name="nomeServico" required>
@@ -13,10 +21,39 @@
                 <label for="descricaoServico" class="form-label">Descrição do Serviço</label>
                 <textarea class="form-control" id="descricaoServico" name="descricaoServico" rows="4" required></textarea>
             </div>
-            <div class="mb-3">
-                <label for="imagemServico" class="form-label">Imagem do Serviço</label>
-                <input type="file" class="form-control" id="imagemServico" name="imagemServico" accept="image/*" required>
-            </div>
+
             <button type="submit" class="btn btn-primary">Cadastrar</button>
         </form>
     </div>
+
+
+    
+<?php
+if(isset($_POST['nomeServico']))
+{
+    $nome = $_POST['nomeServico'];
+    $valor = $_POST['valorServico'];
+    $descricao = $_POST['descricaoServico'];
+
+    $retornoCadastroServico = $Servico->CadastrarServiço($nome, $valor, $descricao);
+
+    echo '<div class="d-flex justify-content-center mt-3">';
+
+    if($retornoCadastroServico)
+    {
+        // Mensagem de sucesso (verde)
+        echo '<div class="alert alert-success  w-50">
+                <strong>Sucesso:</strong> Serviço cadastrado com sucesso!
+              </div>';
+    }
+    else
+    {
+        // Mensagem de erro (vermelho)
+        echo '<div class="alert alert-danger mt-3 w-50">
+                <strong>Erro:</strong> Erro ao cadastrar serviço.
+              </div>';
+    }
+
+    echo '</div>';
+}
+?>
