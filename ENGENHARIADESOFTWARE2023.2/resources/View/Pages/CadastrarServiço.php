@@ -4,8 +4,6 @@ use \App\Controller\Pages\Servico;
 $Servico = new Servico;
 ?>
 
-
-
 <div class="container mt-5">
         <h1>Cadastro de Serviço</h1>
         <form method="POST" enctype="multipart/form-data">
@@ -25,8 +23,6 @@ $Servico = new Servico;
             <button type="submit" class="btn btn-primary">Cadastrar</button>
         </form>
     </div>
-
-
     
 <?php
 if(isset($_POST['nomeServico']))
