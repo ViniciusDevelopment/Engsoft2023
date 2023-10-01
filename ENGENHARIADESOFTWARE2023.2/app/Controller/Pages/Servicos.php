@@ -24,7 +24,6 @@ class Servico
         } else {
             return false; // Erro na inserção
         }
-
     }
     public static function ConsultarServicos()
     {
@@ -32,7 +31,6 @@ class Servico
         $conectado = $conexao->conectarBancoDeDados();
         $sql = "SELECT * FROM servicos WHERE disponibilidade = 1";
         $result = $conectado->query($sql);
-
         return $result;
     }
     
