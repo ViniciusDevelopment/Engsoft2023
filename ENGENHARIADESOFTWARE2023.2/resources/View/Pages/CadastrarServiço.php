@@ -34,8 +34,11 @@ if(isset($_POST['nomeServico']))
     $nome = $_POST['nomeServico'];
     $valor = $_POST['valorServico'];
     $descricao = $_POST['descricaoServico'];
+    $id_prestador = $decoded->id;
 
-    $retornoCadastroServico = $Servico->CadastrarServiço($nome, $valor, $descricao);
+    echo $descricao;
+
+    $retornoCadastroServico = $Servico->CadastrarServiço($nome, $valor, $descricao,$id_prestador);
 
     echo '<div class="d-flex justify-content-center mt-3">';
 
