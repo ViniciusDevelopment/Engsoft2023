@@ -37,9 +37,8 @@ class Servico
     {
         $conexao = new Conexao;
         $conectado = $conexao->conectarBancoDeDados();
-        $sql = "SELECT * FROM servicos WHERE disponibilidade = 1";
+        $sql = "SELECT * FROM servicos WHERE prestador_id = $id_prestador";
         $result = $conectado->query($sql);
         return $result;
     }
-    
 }
