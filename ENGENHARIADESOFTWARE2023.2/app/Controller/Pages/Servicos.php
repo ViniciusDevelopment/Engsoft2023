@@ -33,5 +33,13 @@ class Servico
         $result = $conectado->query($sql);
         return $result;
     }
+    public static function ConsultarServicosPrestador($id_prestador)
+    {
+        $conexao = new Conexao;
+        $conectado = $conexao->conectarBancoDeDados();
+        $sql = "SELECT * FROM servicos WHERE disponibilidade = 1";
+        $result = $conectado->query($sql);
+        return $result;
+    }
     
 }
