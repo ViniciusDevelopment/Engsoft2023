@@ -24,6 +24,7 @@ $Autenticacao = new Autenticacao;
                     <!-- Centralize verticalmente -->
                     <div class="d-flex flex-column align-items-center">
                         <h2>Login</h2>
+                        <img src="..\Assets\logo.png" alt="Logo da Empresa" width="200" height="200">
                     </div>
                         <form action="Login.php" method="POST">
                             <div class="form-group">
