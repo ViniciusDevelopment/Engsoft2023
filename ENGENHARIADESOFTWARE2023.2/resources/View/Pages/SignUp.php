@@ -24,7 +24,6 @@
 
                     <div class="d-flex flex-column align-items-center">
                         <h2>Cadastro</h2>
-                        <img src="..\Assets\logo.png" alt="Logo da Empresa" width="200" height="200">
                     </div>
 
                     <form action="SignUp.php" method="POST">

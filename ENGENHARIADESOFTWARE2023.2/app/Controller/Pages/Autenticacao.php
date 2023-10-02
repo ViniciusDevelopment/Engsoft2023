@@ -7,8 +7,11 @@ use \App\Utils\View;
 use \App\Config\Conexao;
 use Firebase\JWT\JWT;
 
+
+
 class Autenticacao
 {
+
     public static function getLogin()
     {
         return View::render('Pages/Login.php',[
@@ -19,6 +22,7 @@ class Autenticacao
 
     public function CadastrarUsuario($nome, $email, $senha, $confirmarSenha, $nivel)
     {
+
         // Hash da senha antes de armazená-la no banco
         $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
         $conexao = new Conexao;
@@ -55,7 +59,7 @@ class Autenticacao
             // Verifique se a senha fornecida coincide com a senha no banco de dados
             if (password_verify($senha, $senhaHash)) {
                 $payload = array(
-                    "id" => $row['Id'],
+                    "id" => $row['Id'], // O ID do usuário, você pode adicionar mais informações se necessário
                     "email" => $row['Email'],
                     "nome" => $row['Nome'],
                     "nivel" => $row['Nivel'],
