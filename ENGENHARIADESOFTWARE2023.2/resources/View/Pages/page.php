@@ -25,7 +25,6 @@ if ($token == null) {
 $chaveSecreta = 'sua_chave_secreta';
 $decoded = JWT::decode($token, new Key($chaveSecreta, 'HS256'));
 
-// print_r($decoded);
 
 ?>
 
