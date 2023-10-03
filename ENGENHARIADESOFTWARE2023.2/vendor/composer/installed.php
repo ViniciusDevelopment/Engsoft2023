@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'wdev/mvc',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-develop',
+        'version' => 'dev-develop',
+        'reference' => 'c152188ab1256184c74881207dfb232735c8428e',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -20,9 +20,9 @@
             'dev_requirement' => false,
         ),
         'wdev/mvc' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-develop',
+            'version' => 'dev-develop',
+            'reference' => 'c152188ab1256184c74881207dfb232735c8428e',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
