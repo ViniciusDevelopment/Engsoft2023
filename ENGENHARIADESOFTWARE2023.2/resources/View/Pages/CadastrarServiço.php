@@ -132,7 +132,7 @@ if(isset($_POST['nomeServico']))
                         echo "<a href='page.php?arquivo=AlterarServico&id=" . $row['Id'] . "' class='btn btn-sm btn-warning'>Alterar</a>";
 
                         // Botão para acionar modal
-                        echo "<button type='button' class='btn btn-primary btn-sm' data-toggle='modal' data-target='#modalExemplo1" . $row['Id'] . "'>";
+                        echo "<button type='button' class='btn btn-danger btn-sm' data-toggle='modal' data-target='#modalExemplo1" . $row['Id'] . "'>";
                         echo "Deletar";
                         echo "</button>";
 
