@@ -25,25 +25,6 @@ class Servico
             return false; // Erro na inserção
         }
     }
-
-    public static function DeletarServiço($id)
-{
-    $conexao = new Conexao;
-    $conectado = $conexao->conectarBancoDeDados();
-
-    // Correção na consulta SQL e na vinculação de parâmetros
-    $sql = "DELETE FROM servicos WHERE id = ?";
-    $stmt = $conectado->prepare($sql);
-    $stmt->bind_param("i", $id); // "i" significa que o valor é um inteiro
-
-    if ($stmt->execute()) {
-        return true; // Exclusão bem-sucedida
-    } else {
-        return false; // Erro na exclusão
-    }
-}
-
-
     public static function ConsultarServicos()
     {
         $conexao = new Conexao;
@@ -52,6 +33,24 @@ class Servico
         $result = $conectado->query($sql);
         return $result;
     }
+
+    public static function DeletarServiço($id)
+  {
+    $conexao = new Conexao;
+    $conectado = $conexao->conectarBancoDeDados();
+  
+    // Correção na consulta SQL e na vinculação de parâmetros
+    $sql = "DELETE FROM servicos WHERE id = ?";
+    $stmt = $conectado->prepare($sql);
+    $stmt->bind_param("i", $id); // "i" significa que o valor é um inteiro
+  
+    if ($stmt->execute()) {
+        return true; // Exclusão bem-sucedida
+    } else {
+        return false; // Erro na exclusão
+    }
+  }
+    
     public static function ConsultarServicosPrestador($id_prestador)
     {
         $conexao = new Conexao;
@@ -84,10 +83,6 @@ class Servico
       } else {
           return false; // Erro na atualização
       }
-
-
-
-
   }
     public static function ObterNomePrestador($prestador_id)
 {
