@@ -33,24 +33,6 @@ class Servico
         $result = $conectado->query($sql);
         return $result;
     }
-
-    public static function DeletarServiço($id)
-  {
-    $conexao = new Conexao;
-    $conectado = $conexao->conectarBancoDeDados();
-  
-    // Correção na consulta SQL e na vinculação de parâmetros
-    $sql = "DELETE FROM servicos WHERE id = ?";
-    $stmt = $conectado->prepare($sql);
-    $stmt->bind_param("i", $id); // "i" significa que o valor é um inteiro
-  
-    if ($stmt->execute()) {
-        return true; // Exclusão bem-sucedida
-    } else {
-        return false; // Erro na exclusão
-    }
-  }
-    
     public static function ConsultarServicosPrestador($id_prestador)
     {
         $conexao = new Conexao;
@@ -60,49 +42,70 @@ class Servico
         return $result;
     }
 
-    public static function ConsultarServicosid($id)
+    public static function ObterNomePrestador($prestador_id)
     {
         $conexao = new Conexao;
         $conectado = $conexao->conectarBancoDeDados();
-        $sql = "SELECT * FROM servicos WHERE id = $id";
-        $result = $conectado->query($sql);
-        return $result;
-    }
 
-    public static function alterarservico($id, $nome, $valor, $descricao, $disponibilidade)
-    {
-      $conexao = new Conexao;
-      $conectado = $conexao->conectarBancoDeDados();
+        $sql = "SELECT Nome FROM usuarios WHERE Id = ?";
+        $stmt = $conectado->prepare($sql);
+        $stmt->bind_param("i", $prestador_id);
 
-      $sql = "UPDATE servicos SET Nome = ?, Valor = ?, Descricao = ?, disponibilidade = ? WHERE id = ?";
-      $stmt = $conectado->prepare($sql);
-      $stmt->bind_param("sdssi", $nome, $valor, $descricao, $disponibilidade, $id);
-
-      if ($stmt->execute()) {
-          return true; // Atualização bem-sucedida
-      } else {
-          return false; // Erro na atualização
-      }
-  }
-    public static function ObterNomePrestador($prestador_id)
-{
-    $conexao = new Conexao;
-    $conectado = $conexao->conectarBancoDeDados();
-
-    $sql = "SELECT Nome FROM usuarios WHERE Id = ?";
-    $stmt = $conectado->prepare($sql);
-    $stmt->bind_param("i", $prestador_id);
-
-    if ($stmt->execute()) {
-        $result = $stmt->get_result();
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            return $row['Nome']; // Retorna o nome do prestador
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                return $row['Nome']; // Retorna o nome do prestador
+            } else {
+                return "Prestador não encontrado";
+            }
         } else {
-            return "Prestador não encontrado";
+            return "Erro na consulta";
         }
-    } else {
-        return "Erro na consulta";
     }
-}
+
+    public static function ExcluirServico($idServico)
+    {
+        $conexao = new Conexao;
+        $conectado = $conexao->conectarBancoDeDados();
+
+        $sql = "DELETE FROM servicos WHERE Id = ?";
+        $stmt = $conectado->prepare($sql);
+        $stmt->bind_param("i", $idServico);
+
+        // Execute a consulta SQL
+        if ($stmt->execute()) {
+            // Verifique se algum registro foi afetado (ou seja, se a exclusão foi bem-sucedida)
+            if ($stmt->affected_rows > 0) {
+                return 1;
+            } else {
+                return -1;
+            }
+        } else {
+            return 0;
+        }
+    }
+
+    public static function AlterarServico($idServico, $nome, $valor, $descricao, $disponibilidade)
+    {
+        $conexao = new Conexao;
+        $conectado = $conexao->conectarBancoDeDados();
+    
+        $sql = "UPDATE servicos SET Nome = ?, Valor = ?, Descricao = ?, Disponibilidade = ? WHERE Id = ?";
+        $stmt = $conectado->prepare($sql);
+        $stmt->bind_param("ssssi", $nome, $valor, $descricao, $disponibilidade, $idServico);
+    
+        // Execute a consulta SQL
+        if ($stmt->execute()) {
+            // Verifique se algum registro foi afetado (ou seja, se a atualização foi bem-sucedida)
+            if ($stmt->affected_rows > 0) {
+                return 1; // Sucesso
+            } else {
+                return -1; // Nenhum registro foi atualizado (talvez o ID não exista)
+            }
+        } else {
+            return 0; // Erro na execução da consulta SQL
+        }
+    }
+    
 }
