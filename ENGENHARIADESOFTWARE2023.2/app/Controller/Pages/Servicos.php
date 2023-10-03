@@ -33,9 +33,7 @@ class Servico
         $result = $conectado->query($sql);
         return $result;
     }
-<<<<<<< Updated upstream
-    
-=======
+
     public static function ConsultarServicosPrestador($id_prestador)
     {
         $conexao = new Conexao;
@@ -69,5 +67,4 @@ class Servico
           return false; // Erro na atualização
       }
   }
->>>>>>> Stashed changes
 }

@@ -2,9 +2,6 @@
 require_once '..\..\..\app\Controller\Pages\Servicos.php';
 use \App\Controller\Pages\Servico;
 $Servico = new Servico;
-<<<<<<< Updated upstream
-=======
-
 if(isset($_POST['nomeServico']))
 {
     $nome = $_POST['nomeServico'];
@@ -32,7 +29,6 @@ if(isset($_POST['nomeServico']))
     echo '</div>';
 }
 
->>>>>>> Stashed changes
 ?>
 
 <div class="container mt-5">
@@ -54,8 +50,7 @@ if(isset($_POST['nomeServico']))
             <button type="submit" class="btn btn-primary">Cadastrar</button>
         </form>
     </div>
-<<<<<<< Updated upstream
-    
+
 <?php
 if(isset($_POST['nomeServico']))
 {
@@ -88,7 +83,6 @@ if(isset($_POST['nomeServico']))
     echo '</div>';
 }
 ?>
-=======
 
     <div class="container p-3">
     <div class="card p-3 table-responsive">
@@ -134,4 +128,3 @@ if(isset($_POST['nomeServico']))
 
         </div>
         </div>
->>>>>>> Stashed changes
