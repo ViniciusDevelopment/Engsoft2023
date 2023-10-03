@@ -52,6 +52,7 @@ if(isset($_POST['nomeServico']))
     </div>
 
 <?php
+/*
 if(isset($_POST['nomeServico']))
 {
     $nome = $_POST['nomeServico'];
@@ -82,49 +83,88 @@ if(isset($_POST['nomeServico']))
 
     echo '</div>';
 }
+*/
 ?>
 
-    <div class="container p-3">
-    <div class="card p-3 table-responsive">
-    <h2>Minha Lista de Serviços</h2>
-        <table class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Valor</th>
-                    <th>Descrição</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $result = $Servico->ConsultarServicosPrestador($decoded->id);
+
+  <div class="container p-3">
+  <div class="card p-3 table-responsive">
+  <h2>Minha Lista de Serviços</h2>
+      <table class="table table-bordered table-hover">
+          <thead>
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+          <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+              <tr>
+                  <th>ID</th>
+                  <th>Nome</th>
+                  <th>Valor</th>
+                  <th>Descrição</th>
+                  <th>Ações</th>
+              </tr>
+          </thead>
+          <tbody>
+              <?php
+              $result = $Servico->ConsultarServicosPrestador($decoded->id);
 
 
-                if ($result->num_rows > 0) {
-                    // Exibe os dados na tabela
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<tr>";
-                        echo "<td>" . $row['Id'] . "</td>";
-                        echo "<td>" . $row['Nome'] . "</td>";
-                        echo "<td>R$" . number_format($row['Valor'], 2, ',', '.') . "</td>";
-                        echo "<td>" . $row['Descricao'] . "</td>";
-                        echo "<td class='col-auto'>";
-                        echo "<a href='DetalhesServico.php?id=" . $row['Id'] . "' class='btn btn-sm btn-info'>Detalhes</a>";
-                        echo "<a href='page.php?arquivo=AlterarServico&id=" . $row['Id'] . "' class='btn btn-sm btn-warning'>Alterar</a>";
-                        echo "<a href='DeletarServico.php?id=" . $row['Id'] . "' class='btn btn-sm btn-danger'>Deletar</a>";
-                        echo "</td>";
-                        echo "</tr>";
+              if ($result->num_rows > 0) {
+                  // Exibe os dados na tabela
+                  while ($row = $result->fetch_assoc()) {
+                      echo "<tr>";
+                      echo "<td>" . $row['Id'] . "</td>";
+                      echo "<td>" . $row['Nome'] . "</td>";
+                      echo "<td>R$" . number_format($row['Valor'], 2, ',', '.') . "</td>";
+                      echo "<td>" . $row['Descricao'] . "</td>";
+                      echo "<td class='col-auto'>";
+                      // Botão para acionar modal
+                      echo "<button type='button' class='btn btn-primary btn-sm' data-toggle='modal' data-target='#modalExemplo" . $row['Id'] . "'>";
+                      echo "Detalhes";
+                      echo "</button>";
 
-                    }
-                } else {
-                    echo "<tr><td colspan='3'>Nenhum serviço cadastrado.</td></tr>";
-                }
+                      // Modal
+                      echo "<div class='modal fade' id='modalExemplo" . $row['Id'] . "' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>";
+                      echo "<div class='modal-dialog' role='document'>";
+                      echo "<div class='modal-content'>";
+                      echo "<div class='modal-header'>";
+                      echo "<h5 class='modal-title' id='exampleModalLabel'>Detalhes do Serviço:</h5>";
+                      echo "<button type='button' class='close' data-dismiss='modal' aria-label='Fechar'>";
+                      echo "<span aria-hidden='true'>&times;</span>";
+                      echo "</button>";
+                      echo "</div>";
+                      echo "<div class='modal-body'>";
 
-                ?>
-            </tbody>
-        </table>
+                      $nomePrestador = Servico::ObterNomePrestador($row['prestador_id']);
+                      echo "<p>Aqui está todos os dados do serviço desde a sua última alteração:</p>";
+                      echo "<p>ID: " . $row['Id'] . "</p>";
+                      echo "<p>Serviço: " . $row['Nome'] . "</p>";
+                      echo "<p>Preço: R$" . $row['Valor'] . "</p>";
+                      echo "<p>Descrição: " . $row['Descricao'] . "</p>";
+                      echo "<p>Prestador: " . $nomePrestador . "</p>";
+                      echo "<p>Disponibilidade: Está visível para o público</p>";
 
-        </div>
-        </div>
+                      echo "</div>";
+                      echo "<div class='modal-footer'>";
+                      echo "<button type='button' class='btn btn-secondary' data-dismiss='modal'>Fechar</button>";
+                      echo "</div>";
+                      echo "</div>";
+                      echo "</div>";
+                      echo "</div>";
+
+                      echo "<a href='page.php?arquivo=AlterarServico&id=" . $row['Id'] . "' class='btn btn-sm btn-warning'>Alterar</a>";
+                      echo "<a href='DeletarServico.php?id=" . $row['Id'] . "' class='btn btn-sm btn-danger'>Deletar</a>";
+                      echo "</td>";
+                      echo "</tr>";
+
+                  }
+              } else {
+                  echo "<tr><td colspan='3'>Nenhum serviço cadastrado.</td></tr>";
+              }
+
+              ?>
+          </tbody>
+      </table>
+
+      </div>
+      </div>

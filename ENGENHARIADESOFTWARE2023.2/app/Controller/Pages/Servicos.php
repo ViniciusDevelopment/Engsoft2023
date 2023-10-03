@@ -33,7 +33,6 @@ class Servico
         $result = $conectado->query($sql);
         return $result;
     }
-
     public static function ConsultarServicosPrestador($id_prestador)
     {
         $conexao = new Conexao;
@@ -67,4 +66,25 @@ class Servico
           return false; // Erro na atualização
       }
   }
+    public static function ObterNomePrestador($prestador_id)
+{
+    $conexao = new Conexao;
+    $conectado = $conexao->conectarBancoDeDados();
+
+    $sql = "SELECT Nome FROM usuarios WHERE Id = ?";
+    $stmt = $conectado->prepare($sql);
+    $stmt->bind_param("i", $prestador_id);
+
+    if ($stmt->execute()) {
+        $result = $stmt->get_result();
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            return $row['Nome']; // Retorna o nome do prestador
+        } else {
+            return "Prestador não encontrado";
+        }
+    } else {
+        return "Erro na consulta";
+    }
+}
 }
