@@ -54,11 +54,11 @@ if (isset($_POST['confirmarAlteracao'])) {
 
     // Verifique o retorno da função e exiba uma mensagem correspondente
     if ($retornoAlteracaoServico === 1) {
-        echo '<div class="alert alert-success" role="alert">Serviço excluído com sucesso!</div>';
+        echo '<div class="alert alert-success" role="alert">Serviço alterado com sucesso!</div>';
     } elseif ($retornoAlteracaoServico === -1) {
         echo '<div class="alert alert-danger" role="alert">O serviço não foi encontrado.</div>';
     } elseif ($retornoAlteracaoServico === 0) {
-        echo '<div class="alert alert-danger" role="alert">Erro ao excluir o serviço.</div>';
+        echo '<div class="alert alert-danger" role="alert">Erro ao alterar o serviço.</div>';
     }
 }
 
