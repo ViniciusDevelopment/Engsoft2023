@@ -29,6 +29,20 @@ if (isset($_POST['tituloAvalia'])) {
     echo '</div>';
 }
 
+if (isset($_POST['confirmarExclusao'])) {
+    $idServico = $_POST['id_servico'];
+    $retornoExclusaoServico = $Avalia->ExcluirServico($idServico);
+
+    // Verifique o retorno da função e exiba uma mensagem correspondente
+    if ($retornoExclusaoServico === 1) {
+        echo '<div class="alert alert-success" role="alert">Avaliação excluída com sucesso!</div>';
+    } elseif ($retornoExclusaoServico === -1) {
+        echo '<div class="alert alert-danger" role="alert">A avaliação não foi encontrada.</div>';
+    } elseif ($retornoExclusaoServico === 0) {
+        echo '<div class="alert alert-danger" role="alert">Erro ao excluir avaliação.</div>';
+    }
+}
+
 ?>
 <section id="sectionformal" class="clearfix">
     <div class="container">
@@ -96,6 +110,10 @@ if (isset($_POST['tituloAvalia'])) {
                         echo "Detalhes";
                         echo "</button>";
 
+                        echo "<button type='button' class='ml-3 btn btn-danger' data-toggle='modal' data-target='#modaldeletar" . $row['Id'] . "'>";
+                        echo "Deletar";
+                        echo "</button>";
+
                         // Modal Detalhes
                         echo "<div class='modal fade' id='modalExemplo" . $row['Id'] . "' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>";
                         echo "<div class='modal-dialog' role='document'>";
@@ -125,6 +143,34 @@ if (isset($_POST['tituloAvalia'])) {
                         echo "</div>";
                         echo "</div>";
                         //FIM MODAL DETALHES
+
+                        //MODAL DELETAR
+                        echo "<div class='modal fade' id='modaldeletar" . $row['Id'] . "' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>";
+                        echo "<div class='modal-dialog' role='document'>";
+                        echo "<div class='modal-content'>";
+                        echo "<div class='modal-header'>";
+                        echo "<h5 class='modal-title' id='exampleModalLabel'>Deletar o Serviço</h5>";
+                        echo "<button type='button' class='close' data-dismiss='modal' aria-label='Fechar'>";
+                        echo "<span aria-hidden='true'>&times;</span>";
+                        echo "</button>";
+                        echo "</div>";
+
+                        echo "<div class='modal-body'>";
+                        echo "<p>Tem certeza de que deseja excluir este serviço?</p>";
+                        echo "</div>";
+                        echo "<div class='modal-footer'>";
+                        echo "<form action='' method='post'>";
+                        echo "<input type='hidden' name='id_servico' value='".$row['Id']."'>";
+                        echo "<button type='button' class='btn btn-secondary' data-dismiss='modal'>Cancelar</button>";
+                        echo "<button type='submit' class='btn btn-danger' name='confirmarExclusao'>Confirmar</button>";
+                        echo "</form>";
+                        
+                        echo "</div>";
+
+                        echo "</div>";
+                        echo "</div>";
+                        echo "</div>";
+                        //FIM MODAL DELETAR
                     }
                 } else {
                     echo "<tr><td colspan='6'>Nenhuma avaliação feita.</td></tr>";
