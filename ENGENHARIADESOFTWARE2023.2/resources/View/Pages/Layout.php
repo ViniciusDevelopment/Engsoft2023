@@ -66,13 +66,15 @@ $id_usuario = $decoded->id;
                             echo '<li><a class="nav-link scrollto active" href="Layout.php?arquivo=TelaInicial&id=">Home</a></li>';
                             echo '<li><a class="nav-link scrollto active" href="Layout.php?arquivo=Avaliar&id=">Minhas Avaliações</a></li>';
                             echo '<li><a class="nav-link scrollto" href="Layout.php?arquivo=Serviços&id=">Serviços</a></li>';
-                            echo '<li><a class="nav-link scrollto" href="Layout.php?arquivo=Solicitaçoes&id=">Solicitações</a></li>';
+                            echo '<li><a class="nav-link scrollto" href="Layout.php?arquivo=Home2&id=">Solicitações</a></li>';
                             echo '<li><a class="nav-link scrollto" href="Layout.php?arquivo=CadastrarServiço&id=">Meus Serviços</a></li>';
+                            echo '<li><a class="nav-link scrollto" href="Layout.php?arquivo=SolicitarServiço&id=">Solicitar Serviço</a></li>';
                         }
                         else {
                             echo '<li><a class="nav-link scrollto active" href="Layout.php?arquivo=TelaInicial&id=">Home</a></li>';
                             echo '<li><a class="nav-link scrollto" href="Layout.php?arquivo=Serviços&id=">Serviços</a></li>';
                             echo '<li><a class="nav-link scrollto" href="Layout.php?arquivo=Solicitaçoes&id=">Solicitações</a></li>';
+                            echo '<li><a class="nav-link scrollto" href="Layout.php?arquivo=SolicitarServiço&id=">Solicitar Serviço</a></li>';
 
                         }
                     ?>
