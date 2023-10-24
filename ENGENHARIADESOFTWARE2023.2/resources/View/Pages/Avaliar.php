@@ -30,7 +30,10 @@ if (isset($_POST['tituloAvalia'])) {
 }
 
 ?>
+<section id="sectionformal" class="clearfix">
+    <div class="container">
 
+        <div class="hero-info">
 <div class="container mt-5">
     <h1>Avaliar Prestador:</h1>
     <form method="POST" enctype="multipart/form-data">
@@ -133,3 +136,6 @@ if (isset($_POST['tituloAvalia'])) {
 
     </div>
 </div>
+</div>
+        </div>
+</section>
