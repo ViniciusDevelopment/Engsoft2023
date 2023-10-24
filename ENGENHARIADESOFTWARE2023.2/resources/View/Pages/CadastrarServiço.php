@@ -1,4 +1,11 @@
-<?php
+
+
+<section id="sectionformal" class="clearfix">
+    <div class="container">
+
+      <div class="hero-info">
+      <div class="container mt-5">
+      <?php
 require_once '..\..\..\app\Controller\Pages\Servicos.php';
 
 use \App\Controller\Pages\Servico;
@@ -17,7 +24,7 @@ if (isset($_POST['nomeServico'])) {
 
     if ($retornoCadastroServico) {
         // Redireciona para a mesma página com um parâmetro "success"
-        header('Location: page.php?arquivo=CadastrarServiço&id=&success=true');
+        header('Location: Layout.php?arquivo=CadastrarServiço&id=&success=true');
     } else {
         // Mensagem de erro (vermelho)
         echo '<div class="alert alert-danger mt-3 w-50">
@@ -62,12 +69,7 @@ if (isset($_POST['confirmarAlteracao'])) {
     }
 }
 
-
-
-
 ?>
-
-<div class="container mt-5">
     <h1>Cadastro de Serviço</h1>
     <form method="POST" enctype="multipart/form-data">
         <div class="mb-3">
@@ -267,3 +269,12 @@ if (isset($_POST['confirmarAlteracao'])) {
 
     </div>
 </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  
+
+

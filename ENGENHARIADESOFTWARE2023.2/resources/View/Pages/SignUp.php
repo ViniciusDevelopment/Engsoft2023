@@ -37,6 +37,22 @@
                             <input type="email" class="form-control" id="email" name="email" required>
                         </div>
                         <div class="form-group">
+                            <label for="email">CPF:</label>
+                            <input type="text" class="form-control" id="cpf" name="cpf" required oninput="formatCPF()">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">RG:</label>
+                            <input type="text" class="form-control" id="rg" name="rg" required >
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Telefone:</label>
+                            <input type="text" class="form-control" id="telefone" name="telefone" required oninput="formatPhone()">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Endereço:</label>
+                            <textarea class="form-control" id="endereco" name="endereco" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
                             <label for="senha">Senha:</label>
                             <input type="password" class="form-control" id="senha" name="senha" required>
                         </div>
@@ -59,6 +75,25 @@
         </div>
     </div>
 </div>
+
+<script>
+        // Função para formatar o CPF (###.###.###-##)
+        function formatCPF() {
+            let cpfInput = document.getElementById('cpf');
+            let cpfValue = cpfInput.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+            cpfValue = cpfValue.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4'); // Formatação
+            cpfInput.value = cpfValue;
+        }
+
+
+        // Função para formatar o telefone (## #####-####)
+        function formatPhone() {
+            let phoneInput = document.getElementById('telefone');
+            let phoneValue = phoneInput.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+            phoneValue = phoneValue.replace(/(\d{2})(\d{5})(\d{4})/, '$1 $2-$3'); // Formatação
+            phoneInput.value = phoneValue;
+        }
+    </script>
 </body>
 </html>
 
@@ -69,6 +104,10 @@ if(isset($_POST['email']))
     $email = $_POST['email'];
     $senha = $_POST['senha'];
     $confirmarsenha = $_POST['confirmarSenha'];
+    $cpf = $_POST['cpf'];
+    $rg = $_POST['rg'];
+    $telefone = $_POST['telefone'];
+    $endereco = $_POST['endereco'];
     $nivel = isset($_POST['nivel']) ? 1 : 0;
 
     // Verificar se as senhas coincidem
@@ -79,7 +118,7 @@ if(isset($_POST['email']))
         return;
     }
 
-    $retornoCadastroUsuario = $Autenticacao->CadastrarUsuario($nome, $email, $senha,$confirmarsenha, $nivel);
+    $retornoCadastroUsuario = $Autenticacao->CadastrarUsuario($nome, $email, $senha,$confirmarsenha, $nivel, $cpf, $rg, $telefone, $endereco);
     echo '<div class="d-flex justify-content-center mt-3">';
     if($retornoCadastroUsuario)
     {
