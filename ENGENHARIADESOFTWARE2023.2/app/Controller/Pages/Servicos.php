@@ -112,7 +112,7 @@ class Servico
     {
         $conexao = new Conexao;
         $conectado = $conexao->conectarBancoDeDados();
-        $sql = "SELECT * FROM servicos WHERE Nome LIKE '%$pesquisa%' AND disponibilidade = 1";
+        $sql = "SELECT * FROM servicos WHERE Nome LIKE '%$pesquisa%' OR Valor LIKE '%$pesquisa%' OR Descricao LIKE '%$pesquisa%' AND disponibilidade = 1";
         $result = $conectado->query($sql);
         if ($result && $result->num_rows > 0) {
             return $result;
@@ -125,7 +125,7 @@ class Servico
     {
         $conexao = new Conexao;
         $conectado = $conexao->conectarBancoDeDados();
-        $sql = "SELECT * FROM servicos WHERE Nome LIKE '%$pesquisa%' AND prestador_id = $id_prestador";
+        $sql = "SELECT * FROM servicos WHERE (Nome LIKE '%$pesquisa%' OR Valor LIKE '%$pesquisa%' OR Descricao LIKE '%$pesquisa%') AND prestador_id = $id_prestador";
         $result = $conectado->query($sql);
         if ($result && $result->num_rows > 0) {
             return $result;
