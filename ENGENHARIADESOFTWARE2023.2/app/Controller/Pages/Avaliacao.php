@@ -66,6 +66,28 @@ public static function ConsultaId($autor_id, $tituloAvalia)
     }
 }
 
+public static function ExcluirServico($idServico)
+    {
+        $conexao = new Conexao;
+        $conectado = $conexao->conectarBancoDeDados();
+
+        $sql = "DELETE FROM avaliacoes WHERE Id = ?";
+        $stmt = $conectado->prepare($sql);
+        $stmt->bind_param("i", $idServico);
+
+        // Execute a consulta SQL
+        if ($stmt->execute()) {
+            // Verifique se algum registro foi afetado (ou seja, se a exclusão foi bem-sucedida)
+            if ($stmt->affected_rows > 0) {
+                return 1;
+            } else {
+                return -1;
+            }
+        } else {
+            return 0;
+        }
+    }
+
     public static function ObterNomeAutor($autor_id)
     {
         $conexao = new Conexao;

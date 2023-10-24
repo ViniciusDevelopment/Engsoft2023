@@ -178,7 +178,11 @@
                                             echo "<p>Preço: R$" . $row['Valor'] . "</p>";
                                             echo "<p>Descrição: " . $row['Descricao'] . "</p>";
                                             echo "<p>Prestador: " . $nomePrestador . "</p>";
-                                            echo "<p>Disponibilidade: Está visível para o público</p>";
+                                            if ($row['disponibilidade'] == 1) {
+                                                echo '<strong><span class="text-success">Disponível</span></strong>'; // Verde para disponível
+                                            } else {
+                                                echo '<strong><span class="text-danger">Indisponível</span></strong>'; // Vermelho para indisponível
+                                            }
 
                                             echo "</div>";
                                             echo "<div class='modal-footer'>";
@@ -326,12 +330,18 @@
 
                                             $nomePrestador = Servico::ObterNomePrestador($row['prestador_id']);
                                             echo "<p>Aqui está todos os dados do serviço desde a sua última alteração:</p>";
-                                            echo "<p>ID: " . $row['Id'] . "</p>";
+                                            echo "<p>ID do serviço: " . $row['Id'] . "</p>";
+                                            echo "<p>Prestador: " . $nomePrestador . "</p>";
+                                            echo "<p>ID do prestador: " . $row['prestador_id'] . "</p>";
                                             echo "<p>Serviço: " . $row['Nome'] . "</p>";
                                             echo "<p>Preço: R$" . $row['Valor'] . "</p>";
                                             echo "<p>Descrição: " . $row['Descricao'] . "</p>";
-                                            echo "<p>Prestador: " . $nomePrestador . "</p>";
-                                            echo "<p>Disponibilidade: Está visível para o público</p>";
+                                            if ($row['disponibilidade'] == 1) {
+                                                echo "<p>Disponibilidade: Está visível para o público</p>";
+                                            } else {
+                                                echo "<p>Disponibilidade: Não está visível para o público</p>";
+                                            }
+                    
 
                                             echo "</div>";
                                             echo "<div class='modal-footer'>";
