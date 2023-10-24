@@ -8,10 +8,10 @@ class Conexao
 {
     function conectarBancoDeDados()
     {
-        $dbhost = 'localhost:3307';
+        $dbhost = 'localhost';
         $dbUsername = 'root';
         $dbPassword = '';
-        $dbName = 'skillsync';
+        $dbName = 'teste';
 
         $conexao = new mysqli($dbhost, $dbUsername, $dbPassword, $dbName);
 

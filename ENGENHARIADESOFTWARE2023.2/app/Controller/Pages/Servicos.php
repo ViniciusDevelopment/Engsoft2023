@@ -26,21 +26,22 @@ class Servico
         }
     }
 
-    public static function SolicitarServiço($nome, $valor, $descricao, $id_solicitador)
+    public static function SolicitarServiço($descricaoSolicitacao, $id_solicitante, $id_servico)
     {
         $conexao = new Conexao;
         $conectado = $conexao->conectarBancoDeDados();
-
-        $sql = "INSERT INTO solicitarservico (Nome, Valor, Descricao, disponibilidade, solicitador_id) VALUES (?, ?, ?, 1, ?)";
+    
+        $sql = "INSERT INTO solicitarservicos (id_servico, id_solicitante, descricao) VALUES (?, ?, ?)";
         $stmt = $conectado->prepare($sql);
-        $stmt->bind_param("sdsi", $nome, $valor, $descricao, $id_solicitador);
-
+        $stmt->bind_param("iis", $id_servico, $id_solicitante, $descricaoSolicitacao);
+    
         if ($stmt->execute()) {
             return true; // Inserção bem-sucedida
         } else {
             return false; // Erro na inserção
         }
     }
+    
 
 
     public static function ConsultarServicos()
