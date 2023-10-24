@@ -107,5 +107,31 @@ class Servico
             return 0; // Erro na execução da consulta SQL
         }
     }
+
+    public static function PesquisarServicos($pesquisa)
+    {
+        $conexao = new Conexao;
+        $conectado = $conexao->conectarBancoDeDados();
+        $sql = "SELECT * FROM servicos WHERE Nome LIKE '%$pesquisa%' AND disponibilidade = 1";
+        $result = $conectado->query($sql);
+        if ($result && $result->num_rows > 0) {
+            return $result;
+        } else {
+            return null;
+        }
+    }
+
+    public static function PesquisarServicosPrestador($id_prestador, $pesquisa)
+    {
+        $conexao = new Conexao;
+        $conectado = $conexao->conectarBancoDeDados();
+        $sql = "SELECT * FROM servicos WHERE Nome LIKE '%$pesquisa%' AND prestador_id = $id_prestador";
+        $result = $conectado->query($sql);
+        if ($result && $result->num_rows > 0) {
+            return $result;
+        } else {
+            return null;
+        }
+    }
     
 }

@@ -30,12 +30,10 @@ if ($dadosUsuario !== null) {
         <div class="hero-info">
             <div class="container mt-5">
                 <?php
-                echo($dadosUsuario['Nivel']);
                 if (isset($_POST['Email'])) {
 
                     $nome = $_POST['Nome'];
                     $email = $_POST['Email'];
-                    echo($_POST['Nivel']);
                     $nivel = isset($_POST['Nivel']) ? 1 : 0;
                     $cpf = $_POST['cpf'];
                     $rg = $_POST['rg'];

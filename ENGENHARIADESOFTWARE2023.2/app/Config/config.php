@@ -8,7 +8,7 @@ class Conexao
 {
     function conectarBancoDeDados()
     {
-        $dbhost = 'localhost';
+        $dbhost = 'localhost:3307';
         $dbUsername = 'root';
         $dbPassword = '';
         $dbName = 'skillsync';
