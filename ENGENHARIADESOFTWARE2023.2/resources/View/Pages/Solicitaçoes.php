@@ -54,7 +54,7 @@ if (isset($_POST['confirmarExclusao'])) {
             </thead>
             <tbody>
                 <?php
-                $result = $Servico->ConsultarServicosPrestador($decoded->id);
+                $result = $Servico->ConsultarServicosSolicitados($decoded->id);
 
 
                 if ($result->num_rows > 0) {
