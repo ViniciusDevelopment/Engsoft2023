@@ -72,9 +72,9 @@ if (isset($_POST['pesquisa'])) {
           $id_servico = $_POST['id'];
           $id_solicitante = $decoded->id;
 
-          $resultado = $Servico->SolicitarServiço($descricaoSolicitacao, $id_solicitante, $id_servico);
+          $resultado2 = $Servico->SolicitarServiço($descricaoSolicitacao, $id_solicitante, $id_servico);
 
-          if ($resultado) {
+          if ($resultado2) {
             // Se for bem-sucedido, exiba o modal de sucesso
             echo '<script>$("#modalSucesso").modal("show");</script>';
           } else {
@@ -98,7 +98,7 @@ if (isset($_POST['pesquisa'])) {
         $result = $Servico->ConsultarServicos();
 
         if (isset($_POST['pesquisa']) && !empty($_POST['pesquisa'])) {
-          if ($resultado->num_rows > 0) {
+          if ($resultado !== null && $resultado->num_rows > 0) {
             echo '<div class="row">';
 
             while ($row = $resultado->fetch_assoc()) {

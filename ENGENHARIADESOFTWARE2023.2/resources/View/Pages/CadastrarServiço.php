@@ -51,7 +51,7 @@
                     } elseif ($retornoExclusaoServico === -1) {
                         echo '<div class="alert alert-danger" role="alert">O serviço não foi encontrado.</div>';
                     } elseif ($retornoExclusaoServico === 0) {
-                        echo '<div class="alert alert-danger" role="alert">Erro ao excluir o serviço.</div>';
+                        echo '<div class="alert alert-danger" role="alert">Existe uma ou mais solicitações vinculadas a esse serviço.</div>';
                     }
                 }
 
@@ -128,7 +128,7 @@
                             <tbody>
                                 <?php
                                 if (isset($_POST['pesquisa']) && !empty($_POST['pesquisa'])) {
-                                    if ($resultado->num_rows > 0) {
+                                    if ($resultado !== null && $resultado->num_rows > 0) {
                                         // Exibe os dados na tabela
                                         while ($row = $resultado->fetch_assoc()) {
                                             echo "<tr>";
@@ -285,7 +285,7 @@
                                 } else {
                                     $result = $Servico->ConsultarServicosPrestador($decoded->id);
 
-                                    if ($result->num_rows > 0) {
+                                    if ($result !== null && $result->num_rows > 0) {
                                         // Exibe os dados na tabela
                                         while ($row = $result->fetch_assoc()) {
                                             echo "<tr>";
