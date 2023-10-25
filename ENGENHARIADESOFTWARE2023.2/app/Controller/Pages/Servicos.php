@@ -10,14 +10,14 @@ use \App\Config\Conexao;
 
 class Servico
 {
-    public static function CadastrarServiço($nome, $valor, $descricao, $id_prestador)
+    public static function CadastrarServiço($nome, $valor, $descricao, $id_prestador, $status)
     {
         $conexao = new Conexao;
         $conectado = $conexao->conectarBancoDeDados();
 
-        $sql = "INSERT INTO servicos (Nome, Valor, Descricao, disponibilidade, prestador_id) VALUES (?, ?, ?, 1, ?)";
+        $sql = "INSERT INTO servicos (Nome, Valor, Descricao, disponibilidade, prestador_id, Status_id) VALUES (?, ?, ?, 1, ?, ?)";
         $stmt = $conectado->prepare($sql);
-        $stmt->bind_param("sdsi", $nome, $valor, $descricao, $id_prestador);
+        $stmt->bind_param("sdsii", $nome, $valor, $descricao, $id_prestador, $status);
 
         if ($stmt->execute()) {
             return true; // Inserção bem-sucedida
@@ -26,22 +26,21 @@ class Servico
         }
     }
 
-    public static function SolicitarServiço($descricaoSolicitacao, $id_solicitante, $id_servico)
+    public static function SolicitarServiço($nome, $valor, $descricao, $id_solicitador)
     {
         $conexao = new Conexao;
         $conectado = $conexao->conectarBancoDeDados();
-    
-        $sql = "INSERT INTO solicitarservicos (id_servico, id_solicitante, descricao) VALUES (?, ?, ?)";
+
+        $sql = "INSERT INTO solicitarservicos (Nome, Valor, Descricao, disponibilidade, id_solicitante) VALUES (?, ?, ?, 1, ?)";
         $stmt = $conectado->prepare($sql);
-        $stmt->bind_param("iis", $id_servico, $id_solicitante, $descricaoSolicitacao);
-    
+        $stmt->bind_param("sdsi", $nome, $valor, $descricao, $id_solicitador);
+
         if ($stmt->execute()) {
             return true; // Inserção bem-sucedida
         } else {
             return false; // Erro na inserção
         }
     }
-    
 
 
     public static function ConsultarServicos()
@@ -66,7 +65,7 @@ class Servico
     {
         $conexao = new Conexao;
         $conectado = $conexao->conectarBancoDeDados();
-        $sql = "SELECT * FROM solicitarservico WHERE solicitador_id = $id_solicitador";
+        $sql = "SELECT * FROM servicos WHERE id_ = $id_solicitador";
         $result = $conectado->query($sql);
         return $result;
     }
@@ -143,7 +142,7 @@ class Servico
         $conexao = new Conexao;
         $conectado = $conexao->conectarBancoDeDados();
 
-        $sql = "DELETE FROM solicitarservico WHERE Id = ?";
+        $sql = "DELETE FROM solicitarservicos WHERE Id = ?";
         $stmt = $conectado->prepare($sql);
         $stmt->bind_param("i", $idServico);
 
@@ -160,14 +159,14 @@ class Servico
         }
     }
 
-    public static function AlterarServico($idServico, $nome, $valor, $descricao, $disponibilidade)
+    public static function AlterarServico($id, $nome, $valor, $descricao, $disponibilidade, $status)
     {
         $conexao = new Conexao;
         $conectado = $conexao->conectarBancoDeDados();
 
-        $sql = "UPDATE servicos SET Nome = ?, Valor = ?, Descricao = ?, Disponibilidade = ? WHERE Id = ?";
+        $sql = "UPDATE servicos SET Nome = ?, Valor = ?, Descricao = ?, Disponibilidade = ?, Status_id = ? WHERE Id = ?";
         $stmt = $conectado->prepare($sql);
-        $stmt->bind_param("ssssi", $nome, $valor, $descricao, $disponibilidade, $idServico);
+        $stmt->bind_param("sdssii", $nome, $valor, $descricao, $disponibilidade, $status, $id);
 
         // Execute a consulta SQL
         if ($stmt->execute()) {
@@ -188,7 +187,7 @@ class Servico
         $conexao = new Conexao;
         $conectado = $conexao->conectarBancoDeDados();
 
-        $sql = "UPDATE solicitarservico SET Nome = ?, Valor = ?, Descricao = ?, Disponibilidade = ? WHERE Id = ?";
+        $sql = "UPDATE solicitarservicos SET Nome = ?, Valor = ?, Descricao = ?, Disponibilidade = ? WHERE Id = ?";
         $stmt = $conectado->prepare($sql);
         $stmt->bind_param("ssssi", $nome, $valor, $descricao, $disponibilidade, $idServico);
 
@@ -235,7 +234,7 @@ class Servico
     {
         $conexao = new Conexao;
         $conectado = $conexao->conectarBancoDeDados();
-        $sql = "SELECT * FROM solicitarservico WHERE (Nome LIKE '%$pesquisa%' OR Valor LIKE '%$pesquisa%' OR Descricao LIKE '%$pesquisa%') AND solicitador_id = $id_prestador";
+        $sql = "SELECT * FROM solicitarservicos WHERE (Nome LIKE '%$pesquisa%' OR Valor LIKE '%$pesquisa%' OR Descricao LIKE '%$pesquisa%') AND solicitador_id = $id_prestador";
         $result = $conectado->query($sql);
         if ($result && $result->num_rows > 0) {
             return $result;
@@ -248,7 +247,7 @@ class Servico
     {
         $conexao = new Conexao;
         $conectado = $conexao->conectarBancoDeDados();
-        $sql = "SELECT * FROM solicitarservico WHERE disponibilidade = 1";
+        $sql = "SELECT * FROM solicitarservicos";
         $result = $conectado->query($sql);
         return $result;
     }
@@ -257,7 +256,7 @@ class Servico
     {
         $conexao = new Conexao;
         $conectado = $conexao->conectarBancoDeDados();
-        $sql = "SELECT * FROM solicitarservico WHERE Nome LIKE '%$pesquisa%' OR Valor LIKE '%$pesquisa%' OR Descricao LIKE '%$pesquisa%' AND disponibilidade = 1";
+        $sql = "SELECT * FROM solicitarservicos WHERE Nome LIKE '%$pesquisa%' OR Valor LIKE '%$pesquisa%' OR Descricao LIKE '%$pesquisa%' AND disponibilidade = 1";
         $result = $conectado->query($sql);
         if ($result && $result->num_rows > 0) {
             return $result;
