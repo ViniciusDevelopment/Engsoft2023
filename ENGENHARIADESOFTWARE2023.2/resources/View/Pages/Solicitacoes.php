@@ -116,7 +116,7 @@ if (isset($_POST['reprovarServico'])) {
                                         echo "</button>";
 
                                         echo "<form action='' method='post'>"; // Defina o arquivo PHP apropriado no atributo action
-                                        echo "<input type='hidden' name='id_servico' value='" . $row['id_servico'] . "'>";
+                                        echo "<input type='hidden' name='id_servico' value='" . $row['id'] . "'>";
                                         echo "<button type='submit' name='aprovarServico' class='ml-3 btn btn-success'>";
                                         echo "Aprovar";
                                         echo "</button>";
