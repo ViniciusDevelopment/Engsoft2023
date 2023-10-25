@@ -22,10 +22,9 @@
                     $nome = $_POST['nomeServico'];
                     $valor = $_POST['valorServico'];
                     $descricao = $_POST['descricaoServico'];
-                    $status = $_POST['status'];
                     $id_prestador = $decoded->id;
 
-                    $retornoCadastroServico = $Servico->CadastrarServiço($nome, $valor, $descricao, $id_prestador, $status);
+                    $retornoCadastroServico = $Servico->CadastrarServiço($nome, $valor, $descricao, $id_prestador);
 
                     echo '<div class="d-flex justify-content-center mt-3">';
 
@@ -52,7 +51,7 @@
                     } elseif ($retornoExclusaoServico === -1) {
                         echo '<div class="alert alert-danger" role="alert">O serviço não foi encontrado.</div>';
                     } elseif ($retornoExclusaoServico === 0) {
-                        echo '<div class="alert alert-danger" role="alert">Erro ao excluir o serviço.</div>';
+                        echo '<div class="alert alert-danger" role="alert">Existe uma ou mais solicitações vinculadas a esse serviço.</div>';
                     }
                 }
 
@@ -62,9 +61,8 @@
                     $descricao = $_POST['descricao'];
                     $disponibilidade = $_POST['disponibilidade'];
                     $id = $_POST['id'];
-                    $status = $_POST['Status_id']; // Altere 'status' para 'Status_id'
 
-                    $retornoAlteracaoServico = $Servico->AlterarServico($id, $nome, $valor, $descricao, $disponibilidade, $status);
+                    $retornoAlteracaoServico = $Servico->AlterarServico($id, $nome, $valor, $descricao, $disponibilidade);
 
 
                     // Verifique o retorno da função e exiba uma mensagem correspondente
@@ -87,10 +85,6 @@
                     <div class="mb-3">
                         <label for="valorServico" class="form-label">Valor do Serviço</label>
                         <input type="number" class="form-control" id="valorServico" name="valorServico" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="status" class="form-label">Status do Serviço</label>
-                        <input type="number" class="form-control" id="status" name="status" required>
                     </div>
                     <div class="mb-3">
                         <label for="descricaoServico" class="form-label">Descrição do Serviço</label>
@@ -126,7 +120,6 @@
                                     <th>Nome</th>
                                     <th>Valor</th>
                                     <th>Descrição</th>
-                                    <th>Status</th>
                                     <th>Disponibilidade</th>
                                     <th style="width: 1000px;">Ações</th>
 
@@ -135,7 +128,7 @@
                             <tbody>
                                 <?php
                                 if (isset($_POST['pesquisa']) && !empty($_POST['pesquisa'])) {
-                                    if ($resultado->num_rows > 0) {
+                                    if ($resultado !== null && $resultado->num_rows > 0) {
                                         // Exibe os dados na tabela
                                         while ($row = $resultado->fetch_assoc()) {
                                             echo "<tr>";
@@ -143,33 +136,6 @@
                                             echo "<td>" . $row['Nome'] . "</td>";
                                             echo "<td>R$" . number_format($row['Valor'], 2, ',', '.') . "</td>";
                                             echo "<td>" . $row['Descricao'] . "</td>";
-                                            echo "<td>";
-                                            if ($row['Status_id'] == 0) 
-                                            {
-                                                echo '<strong><span class="text-success">Em analíse</span></strong>'; // Verde para disponível
-                                            } else 
-                                            {
-                                                if ($row['Status_id'] == 1) {
-                                                echo '<strong><span class="text-danger">Solicitação cancelada</span></strong>';
-                                                 } else 
-                                                 {
-                                                    if ($row['Status_id'] == 2) 
-                                                    {
-                                                        echo '<strong><span class="text-success">Serviço em andamento</span></strong>'; // Verde para disponível
-                                                    } else 
-                                                    {
-                                                        if ($row['Status_id'] == 3) 
-                                                        {
-                                                            echo '<strong><span class="text-success">Serviço Concluído!</span></strong>'; // Verde para disponível
-                                                        } else 
-                                                        {
-                                                            echo '<strong><span class="text-danger">Serviço com Problema!</span></strong>';
-                                                        }
-                                                    }
-                                                 }
-                                            }
-
-                                            echo "</td>";
                                             echo "<td>";
                                             if ($row['disponibilidade'] == 1) {
                                                 echo '<strong><span class="text-success">Disponível</span></strong>'; // Verde para disponível
@@ -212,32 +178,6 @@
                                             echo "<p>Preço: R$" . $row['Valor'] . "</p>";
                                             echo "<p>Descrição: " . $row['Descricao'] . "</p>";
                                             echo "<p>Prestador: " . $nomePrestador . "</p>";
-
-                                            if ($row['Status_id'] == 0) 
-                                            {
-                                                echo '<p><strong><span class="text-success">Em analíse</span></strong></p>'; // Verde para disponível
-                                            } else 
-                                            {
-                                                if ($row['Status_id'] == 1) {
-                                                echo '<p><strong><span class="text-danger">Solicitação cancelada</span></strong></p>';
-                                                 } else 
-                                                 {
-                                                    if ($row['Status_id'] == 2) 
-                                                    {
-                                                        echo '<p><strong><span class="text-success">Serviço em andamento</span></strong></p>'; // Verde para disponível
-                                                    } else 
-                                                    {
-                                                        if ($row['Status_id'] == 3) 
-                                                        {
-                                                            echo '<p><strong><span class="text-success">Serviço Concluído!</span></strong></p>'; // Verde para disponível
-                                                        } else 
-                                                        {
-                                                            echo '<p><strong><span class="text-danger">Serviço com Problema!</span></strong></p>';
-                                                        }
-                                                    }
-                                                 }
-                                            }
-
                                             if ($row['disponibilidade'] == 1) {
                                                 echo '<strong><span class="text-success">Disponível</span></strong>'; // Verde para disponível
                                             } else {
@@ -314,18 +254,6 @@
                                             echo "<textarea class='form-control' id='descricao' name='descricao'>" . $row['Descricao'] . "</textarea>";
                                             echo "</div>";
 
-                                            // Input para a Status
-                                            echo "<div class='form-group'>";
-                                            echo "<label for='disponibilidade'>Status:</label>";
-                                            echo "<select class='form-control' id='Status_id' name='Status_id'>";
-                                            echo "<option value='0' " . ($row['Status_id'] == 0 ? 'selected' : '') . ">Em análise</option>";
-                                            echo "<option value='1' " . ($row['Status_id'] == 1 ? 'selected' : '') . ">Serviço cancelado</option>";
-                                            echo "<option value='2' " . ($row['Status_id'] == 2 ? 'selected' : '') . ">Serviço em andamento</option>";
-                                            echo "<option value='3' " . ($row['Status_id'] == 3 ? 'selected' : '') . ">Serviço concluído!</option>";
-                                            echo "<option value='4' " . ($row['Status_id'] == 4 ? 'selected' : '') . ">Problemas com serviço!</option>";
-                                            echo "</select>";
-                                            echo "</div>";
-
                                             // Input para a Disponibilidade
                                             echo "<div class='form-group'>";
                                             echo "<label for='disponibilidade'>Disponibilidade:</label>";
@@ -357,7 +285,7 @@
                                 } else {
                                     $result = $Servico->ConsultarServicosPrestador($decoded->id);
 
-                                    if ($result->num_rows > 0) {
+                                    if ($result !== null && $result->num_rows > 0) {
                                         // Exibe os dados na tabela
                                         while ($row = $result->fetch_assoc()) {
                                             echo "<tr>";
@@ -365,33 +293,6 @@
                                             echo "<td>" . $row['Nome'] . "</td>";
                                             echo "<td>R$" . number_format($row['Valor'], 2, ',', '.') . "</td>";
                                             echo "<td>" . $row['Descricao'] . "</td>";
-                                            echo "<td>";
-                                            if ($row['Status_id'] == 0) 
-                                            {
-                                                echo '<strong><span class="text-success">Em analíse</span></strong>'; // Verde para disponível
-                                            } else 
-                                            {
-                                                if ($row['Status_id'] == 1) {
-                                                echo '<strong><span class="text-danger">Solicitação cancelada</span></strong>';
-                                                 } else 
-                                                 {
-                                                    if ($row['Status_id'] == 2) 
-                                                    {
-                                                        echo '<strong><span class="text-success">Serviço em andamento</span></strong>'; // Verde para disponível
-                                                    } else 
-                                                    {
-                                                        if ($row['Status_id'] == 3) 
-                                                        {
-                                                            echo '<strong><span class="text-success">Serviço Concluído!</span></strong>'; // Verde para disponível
-                                                        } else 
-                                                        {
-                                                            echo '<strong><span class="text-danger">Serviço com Problema!</span></strong>';
-                                                        }
-                                                    }
-                                                 }
-                                            }
-
-                                            echo "</td>";
                                             echo "<td>";
                                             if ($row['disponibilidade'] == 1) {
                                                 echo '<strong><span class="text-success">Disponível</span></strong>'; // Verde para disponível
@@ -435,32 +336,6 @@
                                             echo "<p>Serviço: " . $row['Nome'] . "</p>";
                                             echo "<p>Preço: R$" . $row['Valor'] . "</p>";
                                             echo "<p>Descrição: " . $row['Descricao'] . "</p>";
-                                            
-                                            if ($row['Status_id'] == 0) 
-                                            {
-                                                echo '<p><strong><span class="text-success">Em analíse</span></strong></p>'; // Verde para disponível
-                                            } else 
-                                            {
-                                                if ($row['Status_id'] == 1) {
-                                                echo '<p><strong><span class="text-danger">Solicitação cancelada</span></strong></p>';
-                                                 } else 
-                                                 {
-                                                    if ($row['Status_id'] == 2) 
-                                                    {
-                                                        echo '<p><strong><span class="text-success">Serviço em andamento</span></strong></p>'; // Verde para disponível
-                                                    } else 
-                                                    {
-                                                        if ($row['Status_id'] == 3) 
-                                                        {
-                                                            echo '<p><strong><span class="text-success">Serviço Concluído!</span></strong></p>'; // Verde para disponível
-                                                        } else 
-                                                        {
-                                                            echo '<p><strong><span class="text-danger">Serviço com Problema!</span></strong></p>';
-                                                        }
-                                                    }
-                                                 }
-                                            }
-
                                             if ($row['disponibilidade'] == 1) {
                                                 echo "<p>Disponibilidade: Está visível para o público</p>";
                                             } else {
@@ -536,18 +411,6 @@
                                             echo "<div class='form-group'>";
                                             echo "<label for='descricao'>Descrição:</label>";
                                             echo "<textarea class='form-control' id='descricao' name='descricao'>" . $row['Descricao'] . "</textarea>";
-                                            echo "</div>";
-
-                                            // Input para a Status
-                                            echo "<div class='form-group'>";
-                                            echo "<label for='disponibilidade'>Status:</label>";
-                                            echo "<select class='form-control' id='Status_id' name='Status_id'>";
-                                            echo "<option value='0' " . ($row['Status_id'] == 0 ? 'selected' : '') . ">Em análise</option>";
-                                            echo "<option value='1' " . ($row['Status_id'] == 1 ? 'selected' : '') . ">Serviço cancelado</option>";
-                                            echo "<option value='2' " . ($row['Status_id'] == 2 ? 'selected' : '') . ">Serviço em andamento</option>";
-                                            echo "<option value='3' " . ($row['Status_id'] == 3 ? 'selected' : '') . ">Serviço concluído!</option>";
-                                            echo "<option value='4' " . ($row['Status_id'] == 4 ? 'selected' : '') . ">Problemas com serviço!</option>";
-                                            echo "</select>";
                                             echo "</div>";
 
                                             // Input para a Disponibilidade
