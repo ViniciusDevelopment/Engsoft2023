@@ -91,6 +91,8 @@ if (isset($_POST['reprovarServico'])) {
                                 if ($resultado_solicitações !== null && $resultado_solicitações->num_rows > 0) {
                                     // Exibe os dados na tabela
                                     while ($row = $resultado_solicitações->fetch_assoc()) {
+                                    echo($row['id']);
+
                                         echo "<tr>";
                                         echo "<td>" . $row['id'] . "</td>";
                                         echo "<td>" . $row['descricao'] . "</td>";
@@ -98,11 +100,11 @@ if (isset($_POST['reprovarServico'])) {
                                         if ($row['statusr'] == 0) {
                                             echo '<strong><span class="text-success">Em análise</span></strong>';
                                         } elseif ($row['statusr'] == 1) {
-                                            echo '<strong><span class="text-danger">Solicitação cancelada</span></strong>';
+                                            echo '<strong><span class="text-warning">Em análise</span></strong>';
                                         } elseif ($row['statusr'] == 2) {
-                                            echo '<strong><span class="text-success">Serviço em andamento</span></strong>';
+                                            echo '<strong><span class="text-success">Aprovado</span></strong>';
                                         } elseif ($row['statusr'] == 3) {
-                                            echo '<strong><span class="text-success">Serviço Concluído!</span></strong>';
+                                            echo '<strong><span class="text-danger">Cancelado</span></strong>';
                                         } else {
                                             echo '<strong><span class="text-danger">Serviço com Problema!</span></strong>';
                                         }

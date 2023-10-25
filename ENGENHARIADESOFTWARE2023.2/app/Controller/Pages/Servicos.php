@@ -15,7 +15,7 @@ class Servico
     $conexao = new Conexao;
     $conectado = $conexao->conectarBancoDeDados();
 
-    $sql = "UPDATE servicos SET statusr = ? WHERE Id = ?";
+    $sql = "UPDATE solicitarservicos SET statusr = ? WHERE Id = ?";
     $stmt = $conectado->prepare($sql);
     $stmt->bind_param("ii", $status, $idServico);
 
