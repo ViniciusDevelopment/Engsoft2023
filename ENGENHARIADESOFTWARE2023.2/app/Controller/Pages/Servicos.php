@@ -65,7 +65,7 @@ class Servico
     {
         $conexao = new Conexao;
         $conectado = $conexao->conectarBancoDeDados();
-        $sql = "SELECT * FROM servicos WHERE id_ = $id_solicitador";
+        $sql = "SELECT * FROM solicitarservicos WHERE id_solicitante = $id_solicitador";
         $result = $conectado->query($sql);
         return $result;
     }
