@@ -11,7 +11,7 @@ class Conexao
         $dbhost = 'localhost';
         $dbUsername = 'root';
         $dbPassword = '';
-        $dbName = 'skillsync';
+        $dbName = 'teste';
 
         $conexao = new mysqli($dbhost, $dbUsername, $dbPassword, $dbName);
 
