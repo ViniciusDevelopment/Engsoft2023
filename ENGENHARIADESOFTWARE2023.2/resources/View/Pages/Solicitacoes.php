@@ -91,8 +91,6 @@ if (isset($_POST['reprovarServico'])) {
                                 if ($resultado_solicitações !== null && $resultado_solicitações->num_rows > 0) {
                                     // Exibe os dados na tabela
                                     while ($row = $resultado_solicitações->fetch_assoc()) {
-                                    echo($row['id']);
-
                                         echo "<tr>";
                                         echo "<td>" . $row['id'] . "</td>";
                                         echo "<td>" . $row['descricao'] . "</td>";
@@ -207,7 +205,7 @@ if (isset($_POST['reprovarServico'])) {
                                         echo "</div>";
                                         echo "<div class='modal-footer'>";
                                         echo "<form action='' method='post'>";
-                                        echo "<input type='hidden' name='id_servico' value='" . $row['Id'] . "'>";
+                                        echo "<input type='hidden' name='id_servico' value='" . $row['id'] . "'>";
                                         echo "<button type='button' class='btn btn-secondary' data-dismiss='modal'>Cancelar</button>";
                                         echo "<button type='submit' class='btn btn-danger' name='confirmarExclusao'>Confirmar</button>";
                                         echo "</form>";
